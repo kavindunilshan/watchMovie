@@ -2,6 +2,7 @@ package com.example.watchMovie.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 public class User {
 
     // comment added
-
+    @Id
     @Column
     private int id;
 
@@ -18,6 +19,10 @@ public class User {
 
     @Column
     private String district;
+
+
+    @Column
+    private String fname;
 
     @Column
     private String lname;
@@ -52,6 +57,14 @@ public class User {
         this.district = district;
     }
 
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
     public String getLname() {
         return lname;
     }
@@ -74,5 +87,18 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", age=" + age +
+                ", district='" + district + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
