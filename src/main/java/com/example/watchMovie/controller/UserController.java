@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
     @Autowired
-    UserService service;
+    private UserService service;
 
     @PostMapping("/addUser")
     public ResponseEntity<User> createUser(@RequestBody User user) {
