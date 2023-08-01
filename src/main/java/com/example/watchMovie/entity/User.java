@@ -8,6 +8,8 @@ import javax.persistence.Table;
 @Table(name="users")
 public class User {
 
+    // comment added
+
     @Column
     private int id;
 
