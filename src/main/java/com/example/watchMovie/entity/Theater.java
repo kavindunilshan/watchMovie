@@ -41,7 +41,6 @@ public class Theater {
     public void setContactNumber(int contactNumber) {
         this.contactNumber = contactNumber;
     }
-
     @Override
     public String toString() {
         return "Theater{" +
