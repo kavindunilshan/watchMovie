@@ -1,15 +1,16 @@
 package com.example.watchMovie.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import javax.persistence.*;
 
 @Entity
 @Table
+// @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
-    @Column
+    @Column(name = "tid")
     private int tid;
 
     @Column
@@ -17,6 +18,18 @@ public class Theater {
 
     @Column
     private int contactNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tid")
+    private TheaterLocation location;
+
+    public TheaterLocation getLocation() {
+        return location;
+    }
+
+    public void setLocation(TheaterLocation location) {
+        this.location = location;
+    }
 
     public int getTid() {
         return tid;
