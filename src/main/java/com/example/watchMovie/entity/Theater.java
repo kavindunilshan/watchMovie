@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -22,6 +23,10 @@ public class Theater {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
     private TheaterLocation location;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tid")
+    private List<Hall> halls;
 
     public TheaterLocation getLocation() {
         return location;
@@ -49,6 +54,14 @@ public class Theater {
 
     public int getContactNumber() {
         return contactNumber;
+    }
+
+    public List<Hall> getHalls() {
+        return halls;
+    }
+
+    public void setHalls(List<Hall> halls) {
+        this.halls = halls;
     }
 
     public void setContactNumber(int contactNumber) {

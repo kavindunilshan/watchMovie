@@ -1,13 +1,9 @@
 package com.example.watchMovie.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 
 @Entity
 @Table
-// @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@tid")
 public class TheaterLocation {
     @Id
     @Column
@@ -24,19 +20,6 @@ public class TheaterLocation {
 
     @Column
     private String lang;
-
-//    @OneToOne
-//    @JoinColumn(name = "tid")
-//    private Theater theater;
-//
-//    public Theater getTheater() {
-//        return theater;
-//    }
-//
-//    public void setTheater(Theater theater) {
-//        this.theater = theater;
-//    }
-
 
     public int getTid() {
         return tid;
