@@ -3,6 +3,7 @@ package com.example.watchMovie.entity;
 import com.example.watchMovie.supportingEntity.TicketId;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tickets")
@@ -11,13 +12,19 @@ public class Ticket {
     private TicketId ticketId;
 
     @Column
+    private int uid;
+
+    @Column
+    private int mid;
+
+    @Column
     private int fullSeats;
 
     @Column
-    private String bookedSeats;
+    private int halfSeats;
 
     @Column
-    private int halfSeats;
+    private String bookedSeats;
 
     @Column
     private int total;
@@ -54,6 +61,14 @@ public class Ticket {
         this.bookedSeats = bookedSeats;
     }
 
+    public int getMid() {
+        return mid;
+    }
+
+    public void setMid(int mid) {
+        this.mid = mid;
+    }
+
     public int getTotal() {
         return total;
     }
@@ -62,11 +77,21 @@ public class Ticket {
         this.total = total;
     }
 
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
                 "ticketId=" + ticketId +
+                ", uid=" + uid +
                 ", fullSeats=" + fullSeats +
+                ", bookedSeats='" + bookedSeats + '\'' +
                 ", halfSeats=" + halfSeats +
                 ", total=" + total +
                 '}';
