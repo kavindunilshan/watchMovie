@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 @Embeddable
 public class MovieId implements Serializable {
-    @EmbeddedId
     private HallId hallId;
 
     @Column(name = "mid", nullable = false)

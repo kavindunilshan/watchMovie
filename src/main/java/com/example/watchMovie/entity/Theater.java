@@ -28,10 +28,6 @@ public class Theater {
     @JoinColumn(name = "tid")
     private List<Hall> halls;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tid")
-    private List<TheaterMovie> movies;
-
     public TheaterLocation getLocation() {
         return location;
     }
@@ -62,14 +58,6 @@ public class Theater {
 
     public void setContactNumber(int contactNumber) {
         this.contactNumber = contactNumber;
-    }
-
-    public List<TheaterMovie> getMovies() {
-        return movies;
-    }
-
-    public void setMovies(List<TheaterMovie> movies) {
-        this.movies = movies;
     }
 
     public List<Hall> getHalls() {

@@ -3,7 +3,6 @@ package com.example.watchMovie.entity;
 import com.example.watchMovie.supportingEntity.TicketId;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tickets")

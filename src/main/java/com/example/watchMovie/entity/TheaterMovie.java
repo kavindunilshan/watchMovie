@@ -19,6 +19,18 @@ public class TheaterMovie {
     @Column
     private String dimension;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mid", insertable = false, updatable = false)
+    private Movie movie;
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
     public MovieId getId() {
         return id;
     }
