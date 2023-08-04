@@ -9,8 +9,13 @@ public class PictureId implements Serializable {
     @Column(name = "mid", nullable = false)
     private int mid;
 
-    @Column(name = "id", nullable = false)
-    private int id;
+    @Column(name = "pid", nullable = false)
+    private int pid;
+
+    public PictureId(int mid, int pid) {
+        this.mid = mid;
+        this.pid = pid;
+    }
 
     public int getMid() {
         return mid;
@@ -20,19 +25,19 @@ public class PictureId implements Serializable {
         this.mid = mid;
     }
 
-    public int getId() {
-        return id;
+    public int getPid() {
+        return pid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
     @Override
     public String toString() {
         return "PictureId{" +
                 "mid=" + mid +
-                ", id=" + id +
+                ", pid=" + pid +
                 '}';
     }
 }

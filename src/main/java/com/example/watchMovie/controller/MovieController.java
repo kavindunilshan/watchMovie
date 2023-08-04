@@ -2,6 +2,8 @@ package com.example.watchMovie.controller;
 
 import com.example.watchMovie.entity.Movie;
 import com.example.watchMovie.service.MovieService;
+import com.example.watchMovie.supportingEntity.HallId;
+import com.example.watchMovie.supportingEntity.MovieId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

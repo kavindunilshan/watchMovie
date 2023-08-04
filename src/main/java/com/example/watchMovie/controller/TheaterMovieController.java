@@ -2,6 +2,7 @@ package com.example.watchMovie.controller;
 
 import com.example.watchMovie.entity.TheaterMovie;
 import com.example.watchMovie.service.TheaterMovieService;
+import com.example.watchMovie.supportingEntity.HallId;
 import com.example.watchMovie.supportingEntity.MovieId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,10 @@ public class TheaterMovieController {
         return ResponseEntity.ok(service.getTheaterMovieList());
     }
 
-    @GetMapping("/theaterMovies/{id}")
-    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable MovieId id) {
+    @GetMapping("/theaterMovies/{tid}/{hid}/{mid}")
+    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable int tid, @PathVariable int hid,
+                                                            @PathVariable int mid) {
+        MovieId id = new MovieId(new HallId(tid, hid), mid);
         return ResponseEntity.ok(service.getTheaterMovieById(id));
     }
 
@@ -41,8 +44,11 @@ public class TheaterMovieController {
         return ResponseEntity.ok().body(service.updateTheaterMovieById(theaterMovie));
     }
 
-    @DeleteMapping("/deleteTheaterMovie/{id}")
-    public ResponseEntity<String> deleteTheaterMovie(@PathVariable MovieId id) {
+    @DeleteMapping("/deleteTheaterMovie/{tid}/{hid}/{mid}")
+    public ResponseEntity<String> deleteTheaterMovie
+            (@PathVariable int tid, @PathVariable int hid,
+             @PathVariable int mid) {
+        MovieId id = new MovieId(new HallId(tid, hid), mid);
         return ResponseEntity.ok(service.deleteById(id));
     }
 

@@ -31,8 +31,9 @@ public class PictureController {
         return ResponseEntity.ok(service.getPictureList());
     }
 
-    @GetMapping("/pictures/{id}")
-    public ResponseEntity<Picture> getPictureById(@PathVariable PictureId id) {
+    @GetMapping("/pictures/{mid}/{pid}")
+    public ResponseEntity<Picture> getPictureById(@PathVariable int mid, @PathVariable int pid) {
+        PictureId id = new PictureId(mid, pid);
         return ResponseEntity.ok(service.getPictureById(id));
     }
 
@@ -41,8 +42,9 @@ public class PictureController {
         return ResponseEntity.ok().body(service.updatePictureById(picture));
     }
 
-    @DeleteMapping("/deletePicture/{id}")
-    public ResponseEntity<String> deletePicture(@PathVariable PictureId id) {
+    @DeleteMapping("/deletePicture/{mid}/{pid}")
+    public ResponseEntity<String> deletePicture(@PathVariable int mid, @PathVariable int pid) {
+        PictureId id = new PictureId(mid, pid);
         return ResponseEntity.ok(service.deleteById(id));
     }
 

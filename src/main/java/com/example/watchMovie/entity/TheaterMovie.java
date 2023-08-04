@@ -19,7 +19,7 @@ public class TheaterMovie {
     @Column
     private String dimension;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "mid", insertable = false, updatable = false)
     private Movie movie;
 

@@ -31,8 +31,9 @@ public class HallController {
         return ResponseEntity.ok(service.getHallList());
     }
 
-    @GetMapping("/halls/{id}")
-    public ResponseEntity<Hall> getHallById(@PathVariable HallId id) {
+    @GetMapping("/halls/{tid}/{hid}")
+    public ResponseEntity<Hall> getHallById(@PathVariable int tid, @PathVariable int hid) {
+        HallId id = new HallId(tid, hid);
         return ResponseEntity.ok(service.getHallById(id));
     }
 
@@ -41,9 +42,9 @@ public class HallController {
         return ResponseEntity.ok().body(service.updateHallById(hall));
     }
 
-    @DeleteMapping("/deleteHall/{id}")
-    public ResponseEntity<String> deleteHall(@PathVariable HallId id) {
+    @DeleteMapping("/deleteHall/{tid}/{hid}")
+    public ResponseEntity<String> deleteHall(@PathVariable int tid, @PathVariable int hid) {
+        HallId id = new HallId(tid, hid);
         return ResponseEntity.ok(service.deleteById(id));
     }
-
 }

@@ -7,11 +7,16 @@ import java.io.Serializable;
 @Embeddable
 public class HallId implements Serializable {
 
-    @Column(name = "tid", nullable = false)
+    @Column(name = "tid")
     private int tid;
 
-    @Column(name = "hid", nullable = false)
+    @Column(name = "hid")
     private int hid;
+
+    public HallId(int tid, int hid) {
+        this.tid = tid;
+        this.hid = hid;
+    }
 
     public int getTid() {
         return tid;

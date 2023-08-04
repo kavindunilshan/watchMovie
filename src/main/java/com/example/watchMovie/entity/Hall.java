@@ -15,7 +15,7 @@ public class Hall {
     private int seats;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumns({@JoinColumn(name = "tid"), @JoinColumn(name = "mid")})
+    @JoinColumns({@JoinColumn(name = "tid"), @JoinColumn(name = "hid")})
     private List<TheaterMovie> movies;
 
     public HallId getId() {
