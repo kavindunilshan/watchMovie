@@ -12,6 +12,9 @@ public class TicketId implements Serializable {
     @Column(name = "id", nullable = false)
     private int tc_id;
 
+    public TicketId() {
+    }
+
     public TicketId(int tid, int tc_id) {
         this.tid = tid;
         this.tc_id = tc_id;

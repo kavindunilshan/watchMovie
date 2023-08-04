@@ -34,7 +34,6 @@ public class HallService {
         Optional<Hall> hallFound = hallRepository.findById(hall.getId());
         if (hallFound.isPresent()) {
             Hall hallUpdate = hallFound.get();
-            hallUpdate.setId(hall.getId());
             hallUpdate.setSeats(hall.getSeats());
 
             return hallRepository.save(hall);

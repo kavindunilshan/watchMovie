@@ -12,6 +12,9 @@ public class PictureId implements Serializable {
     @Column(name = "pid", nullable = false)
     private int pid;
 
+    public PictureId() {
+    }
+
     public PictureId(int mid, int pid) {
         this.mid = mid;
         this.pid = pid;

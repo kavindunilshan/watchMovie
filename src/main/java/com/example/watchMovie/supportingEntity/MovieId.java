@@ -10,6 +10,9 @@ public class MovieId implements Serializable {
     @Column(name = "mid", nullable = false)
     private int mid;
 
+    public MovieId() {
+    }
+
     public MovieId(HallId hallId, int mid) {
         this.hallId = hallId;
         this.mid = mid;

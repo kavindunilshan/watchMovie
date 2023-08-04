@@ -13,6 +13,9 @@ public class HallId implements Serializable {
     @Column(name = "hid")
     private int hid;
 
+    public HallId() {
+    }
+
     public HallId(int tid, int hid) {
         this.tid = tid;
         this.hid = hid;
