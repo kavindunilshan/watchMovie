@@ -10,11 +10,11 @@ public class TicketId implements Serializable {
     private int tid;
 
     @Column(name = "id", nullable = false)
-    private int id;
+    private int tc_id;
 
-    public TicketId(int tid, int id) {
+    public TicketId(int tid, int tc_id) {
         this.tid = tid;
-        this.id = id;
+        this.tc_id = tc_id;
     }
 
     public int getTid() {
@@ -25,11 +25,11 @@ public class TicketId implements Serializable {
         this.tid = tid;
     }
 
-    public int getId() {
-        return id;
+    public int getTc_id() {
+        return tc_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTc_id(int tc_id) {
+        this.tc_id = tc_id;
     }
 }
