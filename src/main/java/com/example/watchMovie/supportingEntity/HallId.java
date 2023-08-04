@@ -33,4 +33,12 @@ public class HallId implements Serializable {
     public void setHid(int hid) {
         this.hid = hid;
     }
+
+    @Override
+    public String toString() {
+        return "HallId{" +
+                "tid=" + tid +
+                ", hid=" + hid +
+                '}';
+    }
 }

@@ -32,4 +32,12 @@ public class TicketId implements Serializable {
     public void setTc_id(int tc_id) {
         this.tc_id = tc_id;
     }
+
+    @Override
+    public String toString() {
+        return "TicketId{" +
+                "tid=" + tid +
+                ", tc_id=" + tc_id +
+                '}';
+    }
 }

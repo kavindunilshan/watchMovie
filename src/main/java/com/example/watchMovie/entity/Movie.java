@@ -25,10 +25,14 @@ public class Movie {
     @Column
     private String director;
 
-    @ElementCollection
-    @CollectionTable(name = "pictures", joinColumns = @JoinColumn(name = "mid"))
-    @Column(name = "picture")
-    private List<String> pictures;
+//    @ElementCollection
+//    @CollectionTable(name = "pictures", joinColumns = @JoinColumn(name = "mid"))
+//    @Column(name = "picture")
+//    private List<String> pictures;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mid")
+    private List<Picture> pictures;
 
     public int getMid() {
         return mid;
@@ -78,11 +82,24 @@ public class Movie {
         this.director = director;
     }
 
-    public List<String> getPictures() {
+    public List<Picture> getPictures() {
         return pictures;
     }
 
-    public void setPictures(List<String> pictures) {
+    public void setPictures(List<Picture> pictures) {
         this.pictures = pictures;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "mid=" + mid +
+                ", duration=" + duration +
+                ", name='" + name + '\'' +
+                ", actor='" + actor + '\'' +
+                ", actress='" + actress + '\'' +
+                ", director='" + director + '\'' +
+                ", pictures=" + pictures +
+                '}';
     }
 }
