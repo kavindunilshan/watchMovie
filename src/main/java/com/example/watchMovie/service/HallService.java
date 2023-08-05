@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.Hall;
+import com.example.watchMovie.exception.IdNotFound;
 import com.example.watchMovie.repository.HallRepository;
 import com.example.watchMovie.supportingEntity.HallId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,35 @@ public class HallService {
             return null;
         }
     }
+
+    public Hall updateHallById(Hall hall) {
+        Optional<Hall> hallFound = hallRepository.findById(hall.getId());
+        if (hallFound.isPresent()) {
+            Hall hallUpdate = hallFound.get();
+            if(0 < hall.getSeats()){
+                hallUpdate.setSeats(hall.getSeats());
+            }
+            return hallRepository.save(hallUpdate);
+
+        } else {
+            return null;
+        }
+    }
+
+//    public Hall updateHallById(Hall hall) throws IdNotFound {
+//        Optional<Hall> hallFound = hallRepository.findById(hall.getId());
+//        if (hallFound.isPresent()) {
+//            Hall hallUpdate = hallFound.get();
+//
+//            if(0 < hall.getSeats()){
+//                hallUpdate.setSeats(hall.getSeats());
+//            }
+//
+//            return hallRepository.save(hallUpdate);
+//        } else {
+//            throw new IdNotFound("Hall Id not found");
+//        }
+//    }
 
     public String deleteById(HallId id) {
         hallRepository.deleteById(id);

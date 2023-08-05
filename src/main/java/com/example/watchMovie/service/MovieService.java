@@ -46,6 +46,35 @@ public class MovieService {
         }
     }
 
+    public Movie updateMovieById(Movie movie) {
+        Optional<Movie> movieFound = movieRepository.findById(movie.getMid());
+        if (movieFound.isPresent()) {
+            Movie movieUpdate = movieFound.get();
+
+            if(0 < movie.getName().length())
+                movieUpdate.setName(movie.getName());
+
+            if(0 < movie.getActor().length())
+                movieUpdate.setActor(movie.getActor());
+
+            if(0 < movie.getActress().length())
+                movieUpdate.setActress(movie.getActress());
+
+            if(0 < movie.getDuration())
+                movieUpdate.setDuration(movie.getDuration());
+
+            if(0 < movie.getDirector().length())
+                movieUpdate.setDirector(movie.getDirector());
+
+            if(0 < movie.getPictures().size())
+                movieUpdate.setPictures(movie.getPictures());
+
+            return movieRepository.save(movieUpdate);
+        } else {
+            return null;
+        }
+    }
+
     public String deleteById(int id) {
         movieRepository.deleteById(id);
         return "Movie " + id + " is deleted.";

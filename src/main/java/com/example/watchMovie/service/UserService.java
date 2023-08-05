@@ -33,14 +33,26 @@ public class UserService {
         Optional<User> userFound = userRepository.findById(user.getId());
         if (userFound.isPresent()) {
             User userUpdate = userFound.get();
-            userUpdate.setFname(user.getFname());
-            userUpdate.setLname(user.getLname());
-            userUpdate.setAge(user.getAge());
-            userUpdate.setDistrict(user.getDistrict());
-            userUpdate.setUsername(user.getUsername());
-            userUpdate.setPassword(user.getPassword());
 
-            return userRepository.save(user);
+            if(0 < user.getFname().length())
+                userUpdate.setFname(user.getFname());
+
+            if(0 < user.getLname().length())
+                userUpdate.setLname(user.getLname());
+
+            if(0 < user.getAge())
+                userUpdate.setAge(user.getAge());
+
+            if(0 < user.getDistrict().length())
+                userUpdate.setDistrict(user.getDistrict());
+
+            if(0 < user.getUsername().length())
+                userUpdate.setUsername(user.getUsername());
+
+            if(0 < user.getPassword().length())
+                userUpdate.setPassword(user.getPassword());
+
+            return userRepository.save(userUpdate);
         } else {
             return null;
         }

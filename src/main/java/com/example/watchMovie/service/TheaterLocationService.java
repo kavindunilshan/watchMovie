@@ -44,6 +44,29 @@ public class TheaterLocationService {
         }
     }
 
+    public TheaterLocation updateTheaterLocationById(TheaterLocation location) {
+        Optional<TheaterLocation> locationFound = theaterLocationRepository.findById(location.getTid());
+        if (locationFound.isPresent()) {
+            TheaterLocation locationUpdate = locationFound.get();
+
+            if(0 < locationUpdate.getDistrict().length())
+                locationUpdate.setDistrict(location.getDistrict());
+
+            if(0 < locationUpdate.getCity().length())
+                locationUpdate.setCity(location.getCity());
+
+            if(0 < locationUpdate.getLat().length())
+                locationUpdate.setLat(location.getLat());
+
+            if(0 < locationUpdate.getLang().length())
+                locationUpdate.setLang(location.getLang());
+
+            return theaterLocationRepository.save(locationUpdate);
+        } else {
+            return null;
+        }
+    }
+
     public String deleteById(int tid) {
         theaterLocationRepository.deleteById(tid);
         return "Theater Location " + tid + " is deleted.";

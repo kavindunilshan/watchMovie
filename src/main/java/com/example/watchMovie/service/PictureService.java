@@ -42,6 +42,21 @@ public class PictureService {
         }
     }
 
+    public Picture updatePictureById(Picture picture) {
+        Optional<Picture> pictureFound = pictureRepository.findById(picture.getId());
+        if (pictureFound.isPresent()) {
+            Picture pictureUpdate = pictureFound.get();
+
+            if(0 < picture.getName().length())
+                pictureUpdate.setName(picture.getName());
+
+            return pictureRepository.save(pictureUpdate);
+        } else {
+            return null;
+        }
+    }
+
+
     public String deleteById(PictureId id) {
         pictureRepository.deleteById(id);
         return "Picture " + id + " is deleted.";

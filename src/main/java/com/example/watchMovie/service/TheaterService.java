@@ -42,6 +42,29 @@ public class TheaterService {
         }
     }
 
+    public Theater updateTheaterById(Theater theater) {
+        Optional<Theater> theaterFound = theaterRepository.findById(theater.getTid());
+        if (theaterFound.isPresent()) {
+            Theater theaterUpdate = theaterFound.get();
+
+            if(0 < theater.getName().length())
+                theaterUpdate.setName(theater.getName());
+
+            if(0 < theater.getContactNumber())
+                theaterUpdate.setContactNumber(theater.getContactNumber());
+
+            if(theater.getLocation() != null)
+                theaterUpdate.setLocation(theater.getLocation());
+
+            if(0 < theater.getHalls().size())
+                theaterUpdate.setHalls(theater.getHalls());
+
+            return theaterRepository.save(theater);
+        } else {
+            return null;
+        }
+    }
+
     public String deleteById(int tid) {
         theaterRepository.deleteById(tid);
         return "Theater " + tid + " is deleted.";

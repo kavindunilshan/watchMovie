@@ -44,6 +44,29 @@ public class TheaterMovieService {
         }
     }
 
+    public TheaterMovie updateTheaterMovieById(TheaterMovie theaterMovie) {
+        Optional<TheaterMovie> theaterMovieFound = theaterMovieRepository.findById(theaterMovie.getId());
+        if (theaterMovieFound.isPresent()) {
+            TheaterMovie theaterMovieUpdate = theaterMovieFound.get();
+
+            if(0 < theaterMovie.getDimension().length())
+                theaterMovieUpdate.setDimension(theaterMovie.getDimension());
+
+            if(0 < theaterMovie.getTimeSlot().length())
+                theaterMovieUpdate.setTimeSlot(theaterMovie.getTimeSlot());
+
+            if(0 < theaterMovie.getPrice())
+                theaterMovieUpdate.setPrice(theaterMovie.getPrice());
+
+            if(theaterMovie.getMovie() != null)
+                theaterMovieUpdate.setMovie(theaterMovie.getMovie());
+
+            return theaterMovieRepository.save(theaterMovieUpdate);
+        } else {
+            return null;
+        }
+    }
+
     public String deleteById(MovieId id) {
         theaterMovieRepository.deleteById(id);
         return "TheaterMovie " + id + " is deleted.";

@@ -45,6 +45,30 @@ public class TicketService {
         }
     }
 
+    public Ticket updateTicketById(Ticket ticket) {
+        Optional<Ticket> ticketFound = ticketRepository.findById(ticket.getTicketId());
+        if (ticketFound.isPresent()) {
+            Ticket ticketUpdate = ticketFound.get();
+
+            if(0 < ticketUpdate.getFullSeats())
+                ticketUpdate.setFullSeats(ticket.getFullSeats());
+
+            if(0 < ticketUpdate.getFullSeats())
+                ticketUpdate.setHalfSeats(ticket.getHalfSeats());
+
+            // need to change ------------------------=========
+            if(0 < ticketUpdate.getBookedSeats().length())
+                ticketUpdate.setBookedSeats(ticket.getBookedSeats());
+
+            if(0 < ticketUpdate.getTotal())
+                ticketUpdate.setTotal(ticket.getTotal());
+
+            return ticketRepository.save(ticketUpdate);
+        } else {
+            return null;
+        }
+    }
+
     public String deleteById(TicketId id) {
         ticketRepository.deleteById(id);
         return "Ticket " + id + " is deleted.";
