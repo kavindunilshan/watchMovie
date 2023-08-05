@@ -40,6 +40,11 @@ public class UserController {
         return ResponseEntity.ok().body(service.updateUser(user));
     }
 
+    @PatchMapping("/updateUser")
+    public ResponseEntity<User> updateUserPart(@RequestBody User user) {
+        return ResponseEntity.ok().body(service.updateUserById(user));
+    }
+
     @DeleteMapping("/deleteUser/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));

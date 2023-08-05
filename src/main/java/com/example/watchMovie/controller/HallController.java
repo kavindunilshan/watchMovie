@@ -1,6 +1,7 @@
 package com.example.watchMovie.controller;
 
 import com.example.watchMovie.entity.Hall;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.service.HallService;
 import com.example.watchMovie.supportingEntity.HallId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +43,10 @@ public class HallController {
         return ResponseEntity.ok().body(service.updateHall(hall));
     }
 
-//    @PutMapping("/updateHalls/{tid}/{hid}")
-//    public ResponseEntity<Hall> updateHalls(@PathVariable int tid, @PathVariable int hid) {
-//        HallId id = new HallId(tid, hid);
-//        return ResponseEntity.ok().body(service.updateHallById(hall));
-//    }
+    @PatchMapping("/updateHall")
+    public ResponseEntity<Hall> updateHallPart(@RequestBody Hall hall) throws IdNotFoundException {
+        return ResponseEntity.ok().body(service.updateHallById(hall));
+    }
 
     @DeleteMapping("/deleteHall/{tid}/{hid}")
     public ResponseEntity<String> deleteHall(@PathVariable int tid, @PathVariable int hid) {

@@ -40,6 +40,11 @@ public class TheaterLocationController {
         return ResponseEntity.ok().body(service.updateTheaterLocation(theaterLocation));
     }
 
+    @PatchMapping("/updateTheaterLocation")
+    public ResponseEntity<TheaterLocation> updateTheaterLocationPart(@RequestBody TheaterLocation theaterLocation) {
+        return ResponseEntity.ok().body(service.updateTheaterLocationById(theaterLocation));
+    }
+
     @DeleteMapping("/deleteTheaterLocation/{id}")
     public ResponseEntity<String> deleteTheaterLocation(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));

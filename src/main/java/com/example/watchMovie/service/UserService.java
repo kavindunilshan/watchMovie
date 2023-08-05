@@ -33,6 +33,23 @@ public class UserService {
         Optional<User> userFound = userRepository.findById(user.getId());
         if (userFound.isPresent()) {
             User userUpdate = userFound.get();
+            userUpdate.setFname(user.getFname());
+            userUpdate.setLname(user.getLname());
+            userUpdate.setAge(user.getAge());
+            userUpdate.setDistrict(user.getDistrict());
+            userUpdate.setUsername(user.getUsername());
+            userUpdate.setPassword(user.getPassword());
+
+            return userRepository.save(user);
+        } else {
+            return null;
+        }
+    }
+
+    public User updateUserById(User user) {
+        Optional<User> userFound = userRepository.findById(user.getId());
+        if (userFound.isPresent()) {
+            User userUpdate = userFound.get();
 
             if(0 < user.getFname().length())
                 userUpdate.setFname(user.getFname());

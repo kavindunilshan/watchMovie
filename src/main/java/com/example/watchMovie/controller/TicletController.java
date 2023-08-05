@@ -42,6 +42,11 @@ public class TicletController {
         return ResponseEntity.ok().body(service.updateTicket(ticket));
     }
 
+    @PatchMapping("/updateTicket")
+    public ResponseEntity<Ticket> updateTicketPart(@RequestBody Ticket ticket) {
+        return ResponseEntity.ok().body(service.updateTicketById(ticket));
+    }
+
     @DeleteMapping("/deleteTicket/{tid}/{tc_id}")
     public ResponseEntity<String> deleteTicket(@PathVariable int tid, @PathVariable int tc_id) {
         TicketId id = new TicketId(tid, tc_id);

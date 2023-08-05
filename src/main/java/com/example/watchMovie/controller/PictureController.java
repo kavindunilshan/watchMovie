@@ -42,6 +42,11 @@ public class PictureController {
         return ResponseEntity.ok().body(service.updatePicture(picture));
     }
 
+    @PatchMapping("/updatePicture")
+    public ResponseEntity<Picture> updatePicturePart(@RequestBody Picture picture) {
+        return ResponseEntity.ok().body(service.updatePictureById(picture));
+    }
+
     @DeleteMapping("/deletePicture/{mid}/{pid}")
     public ResponseEntity<String> deletePicture(@PathVariable int mid, @PathVariable int pid) {
         PictureId id = new PictureId(mid, pid);

@@ -42,6 +42,11 @@ public class MovieController {
         return ResponseEntity.ok().body(service.updateMovie(movie));
     }
 
+    @PatchMapping("/updateMovie")
+    public ResponseEntity<Movie> updateMoviePart(@RequestBody Movie movie) {
+        return ResponseEntity.ok().body(service.updateMovieById(movie));
+    }
+
     @DeleteMapping("/deleteMovie/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));
