@@ -1,15 +1,16 @@
 package com.example.watchMovie.supportingEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
 public class HallId implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tid")
     private int tid;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hid")
     private int hid;
 

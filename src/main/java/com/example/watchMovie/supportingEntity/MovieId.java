@@ -1,5 +1,7 @@
 package com.example.watchMovie.supportingEntity;
 
+import net.bytebuddy.asm.Advice;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -7,6 +9,7 @@ import java.io.Serializable;
 public class MovieId implements Serializable {
     private HallId hallId;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "mid", nullable = false)
     private int mid;
 

@@ -40,7 +40,7 @@ public class TheaterController {
         return ResponseEntity.ok().body(service.updateTheater(theater));
     }
 
-    @PutMapping("/updateTheater")
+    @PatchMapping("/updateTheater")
     public ResponseEntity<Theater> updateTheaterpart(@RequestBody Theater theater) {
         return ResponseEntity.ok().body(service.updateTheaterById(theater));
     }

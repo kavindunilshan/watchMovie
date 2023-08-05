@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name="movies")
 public class Movie {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private int mid;
 

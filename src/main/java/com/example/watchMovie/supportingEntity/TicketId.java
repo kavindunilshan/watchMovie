@@ -6,9 +6,11 @@ import java.io.Serializable;
 @Embeddable
 public class TicketId implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tid", nullable = false)
     private int tid;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int tc_id;
 

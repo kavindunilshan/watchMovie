@@ -11,6 +11,7 @@ import java.util.List;
 // @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tid")
     private int tid;
 

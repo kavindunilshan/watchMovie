@@ -1,9 +1,6 @@
 package com.example.watchMovie.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="users")
@@ -11,6 +8,7 @@ public class User {
 
     // comment added
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private int id;
 

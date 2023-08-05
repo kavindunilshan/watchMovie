@@ -1,14 +1,15 @@
 package com.example.watchMovie.supportingEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
 public class PictureId implements Serializable {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "mid", nullable = false)
     private int mid;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pid", nullable = false)
     private int pid;
 
