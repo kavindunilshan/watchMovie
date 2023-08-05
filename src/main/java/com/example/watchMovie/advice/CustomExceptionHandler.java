@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class CustomExceptionHandler {
-
+public class CustomExceptionHandler extends RuntimeException {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(IdNotFoundException.class)
     public String handleInvalidArgument(IdNotFoundException exception) {

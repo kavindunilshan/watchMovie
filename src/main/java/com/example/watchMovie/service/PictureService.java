@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.Picture;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.repository.PictureRepository;
 import com.example.watchMovie.supportingEntity.PictureId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class PictureService {
 
             return pictureRepository.save(picture);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid Picture Id");
         }
     }
 
@@ -52,7 +53,7 @@ public class PictureService {
 
             return pictureRepository.save(pictureUpdate);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid Picture Id");
         }
     }
 

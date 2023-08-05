@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.Ticket;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.repository.TicketRepository;
 import com.example.watchMovie.supportingEntity.TicketId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,7 @@ public class TicketService {
 
             return ticketRepository.save(ticketUpdate);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid ticket Id");
         }
     }
 

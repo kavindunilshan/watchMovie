@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.Theater;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.repository.TheaterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,7 +62,7 @@ public class TheaterService {
 
             return theaterRepository.save(theater);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid theater Id");
         }
     }
 

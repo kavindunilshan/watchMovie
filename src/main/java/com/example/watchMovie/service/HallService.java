@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.Hall;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.repository.HallRepository;
 import com.example.watchMovie.supportingEntity.HallId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class HallService {
 
             return hallRepository.save(hall);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid Hall Id");
         }
     }
 
@@ -52,7 +53,7 @@ public class HallService {
             return hallRepository.save(hallUpdate);
 
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid Hall Id");
         }
     }
 

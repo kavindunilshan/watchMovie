@@ -1,6 +1,7 @@
 package com.example.watchMovie.service;
 
 import com.example.watchMovie.entity.User;
+import com.example.watchMovie.exception.IdNotFoundException;
 import com.example.watchMovie.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class UserService {
 
             return userRepository.save(user);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid User Id");
         }
     }
 
@@ -71,7 +72,7 @@ public class UserService {
 
             return userRepository.save(userUpdate);
         } else {
-            return null;
+            throw new IdNotFoundException("Invalid User Id");
         }
     }
 
