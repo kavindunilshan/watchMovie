@@ -15,13 +15,13 @@ public class TicletController {
     @Autowired
     private TicketService service;
 
-    @PostMapping("/addTicket")
+    @PostMapping("/tickets")
     public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
         System.out.println(ticket);
         return ResponseEntity.ok(this.service.createTicket(ticket));
     }
 
-    @PostMapping("/addTickets")
+    @PostMapping("/tickets")
     public ResponseEntity<List<Ticket>> createTickets(@RequestBody List<Ticket> tickets) {
         return ResponseEntity.ok(service.createTicketList(tickets));
     }
@@ -37,17 +37,17 @@ public class TicletController {
         return ResponseEntity.ok(service.getTicketById(id));
     }
 
-    @PutMapping("/updateTicket")
+    @PutMapping("/tickets")
     public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket) {
         return ResponseEntity.ok().body(service.updateTicket(ticket));
     }
 
-    @PatchMapping("/updateTicket")
+    @PatchMapping("/tickets")
     public ResponseEntity<Ticket> updateTicketPart(@RequestBody Ticket ticket) {
         return ResponseEntity.ok().body(service.updateTicketById(ticket));
     }
 
-    @DeleteMapping("/deleteTicket/{tid}/{tc_id}")
+    @DeleteMapping("/tickets/{tid}/{tc_id}")
     public ResponseEntity<String> deleteTicket(@PathVariable int tid, @PathVariable int tc_id) {
         TicketId id = new TicketId(tid, tc_id);
         return ResponseEntity.ok(service.deleteById(id));

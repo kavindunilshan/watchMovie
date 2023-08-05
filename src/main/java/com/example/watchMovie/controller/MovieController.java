@@ -16,13 +16,13 @@ public class MovieController {
     @Autowired
     private MovieService service;
 
-    @PostMapping("/addMovie")
+    @PostMapping("/movies")
     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
         System.out.println(movie);
         return ResponseEntity.ok(this.service.createMovie(movie));
     }
 
-    @PostMapping("/addMovies")
+    @PostMapping("/movies")
     public ResponseEntity<List<Movie>> createMovies(@RequestBody List<Movie> movies) {
         return ResponseEntity.ok(service.createMovieList(movies));
     }
@@ -37,17 +37,17 @@ public class MovieController {
         return ResponseEntity.ok(service.getMovieById(id));
     }
 
-    @PutMapping("/updateMovie")
+    @PutMapping("/movies")
     public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
         return ResponseEntity.ok().body(service.updateMovie(movie));
     }
 
-    @PatchMapping("/updateMovie")
+    @PatchMapping("/movies")
     public ResponseEntity<Movie> updateMoviePart(@RequestBody Movie movie) {
         return ResponseEntity.ok().body(service.updateMovieById(movie));
     }
 
-    @DeleteMapping("/deleteMovie/{id}")
+    @DeleteMapping("/movies/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));
     }

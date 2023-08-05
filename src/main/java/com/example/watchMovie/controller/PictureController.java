@@ -37,17 +37,17 @@ public class PictureController {
         return ResponseEntity.ok(service.getPictureById(id));
     }
 
-    @PutMapping("/updatePicture")
+    @PutMapping("/pictures")
     public ResponseEntity<Picture> updatePicture(@RequestBody Picture picture) {
         return ResponseEntity.ok().body(service.updatePicture(picture));
     }
 
-    @PatchMapping("/updatePicture")
+    @PatchMapping("/pictures")
     public ResponseEntity<Picture> updatePicturePart(@RequestBody Picture picture) {
         return ResponseEntity.ok().body(service.updatePictureById(picture));
     }
 
-    @DeleteMapping("/deletePicture/{mid}/{pid}")
+    @DeleteMapping("/pictures/{mid}/{pid}")
     public ResponseEntity<String> deletePicture(@PathVariable int mid, @PathVariable int pid) {
         PictureId id = new PictureId(mid, pid);
         return ResponseEntity.ok(service.deleteById(id));

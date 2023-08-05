@@ -14,13 +14,13 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping("/addUser")
+    @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         System.out.println(user);
         return ResponseEntity.ok(this.service.createUser(user));
     }
 
-    @PostMapping("/addUsers")
+    @PostMapping("/users")
     public ResponseEntity<List<User>> createUsers(@RequestBody List<User> users) {
         return ResponseEntity.ok(service.createUserList(users));
     }
@@ -35,17 +35,17 @@ public class UserController {
         return ResponseEntity.ok(service.getUserById(id));
     }
 
-    @PutMapping("/updateUser")
+    @PutMapping("/users")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         return ResponseEntity.ok().body(service.updateUser(user));
     }
 
-    @PatchMapping("/updateUser")
+    @PatchMapping("/users")
     public ResponseEntity<User> updateUserPart(@RequestBody User user) {
         return ResponseEntity.ok().body(service.updateUserById(user));
     }
 
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));
     }

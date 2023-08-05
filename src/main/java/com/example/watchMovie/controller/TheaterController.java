@@ -14,13 +14,13 @@ public class TheaterController {
     @Autowired
     private TheaterService service;
 
-    @PostMapping("/addTheater")
+    @PostMapping("/theaters")
     public ResponseEntity<Theater> createTheater(@RequestBody Theater theater) {
         System.out.println(theater);
         return ResponseEntity.ok(this.service.createTheater(theater));
     }
 
-    @PostMapping("/addTheaters")
+    @PostMapping("/theaters")
     public ResponseEntity<List<Theater>> createTheaters(@RequestBody List<Theater> theaters) {
         return ResponseEntity.ok(service.createTheaterList(theaters));
     }
@@ -35,17 +35,17 @@ public class TheaterController {
         return ResponseEntity.ok(service.getTheaterById(id));
     }
 
-    @PutMapping("/updateTheater")
+    @PutMapping("/theaters")
     public ResponseEntity<Theater> updateTheater(@RequestBody Theater theater) {
         return ResponseEntity.ok().body(service.updateTheater(theater));
     }
 
-    @PatchMapping("/updateTheater")
+    @PatchMapping("/theaters")
     public ResponseEntity<Theater> updateTheaterpart(@RequestBody Theater theater) {
         return ResponseEntity.ok().body(service.updateTheaterById(theater));
     }
 
-    @DeleteMapping("/deleteTheater/{id}")
+    @DeleteMapping("/theaters/{id}")
     public ResponseEntity<String> deleteTheater(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));
     }

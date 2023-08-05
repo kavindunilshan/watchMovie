@@ -16,13 +16,13 @@ public class HallController {
     @Autowired
     private HallService service;
 
-    @PostMapping("/addHall")
+    @PostMapping("/halls")
     public ResponseEntity<Hall> createHall(@RequestBody Hall hall) {
         System.out.println(hall);
         return ResponseEntity.ok(this.service.createHall(hall));
     }
 
-    @PostMapping("/addHalls")
+    @PostMapping("/halls")
     public ResponseEntity<List<Hall>> createHalls(@RequestBody List<Hall> halls) {
         return ResponseEntity.ok(service.createHallList(halls));
     }
@@ -38,17 +38,17 @@ public class HallController {
         return ResponseEntity.ok(service.getHallById(id));
     }
 
-    @PutMapping("/updateHall")
+    @PutMapping("/halls")
     public ResponseEntity<Hall> updateHall(@RequestBody Hall hall) {
         return ResponseEntity.ok().body(service.updateHall(hall));
     }
 
-    @PatchMapping("/updateHall")
+    @PatchMapping("/halls")
     public ResponseEntity<Hall> updateHallPart(@RequestBody Hall hall) throws IdNotFoundException {
         return ResponseEntity.ok().body(service.updateHallById(hall));
     }
 
-    @DeleteMapping("/deleteHall/{tid}/{hid}")
+    @DeleteMapping("/halls/{tid}/{hid}")
     public ResponseEntity<String> deleteHall(@PathVariable int tid, @PathVariable int hid) {
         HallId id = new HallId(tid, hid);
         return ResponseEntity.ok(service.deleteById(id));

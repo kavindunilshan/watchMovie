@@ -14,28 +14,28 @@ public class TheaterLocationController {
     @Autowired
     private TheaterLocationService service;
 
-    @PostMapping("/addTheaterLocation")
+    @PostMapping("/locations")
     public ResponseEntity<TheaterLocation> createTheaterLocation(@RequestBody TheaterLocation theaterLocation) {
         System.out.println(theaterLocation);
         return ResponseEntity.ok(this.service.createTheaterLocation(theaterLocation));
     }
 
-    @PostMapping("/addTheaterLocations")
+    @PostMapping("/locations")
     public ResponseEntity<List<TheaterLocation>> createTheaterLocations(@RequestBody List<TheaterLocation> theaterLocations) {
         return ResponseEntity.ok(service.createTheaterLocationList(theaterLocations));
     }
 
-    @GetMapping("/theaterLocations")
+    @GetMapping("/locations")
     public ResponseEntity<List<TheaterLocation>> getTheaterLocations() {
         return ResponseEntity.ok(service.getTheaterLocationList());
     }
 
-    @GetMapping("/theaterLocations/{id}")
+    @GetMapping("/locations/{id}")
     public ResponseEntity<TheaterLocation> getTheaterLocationById(@PathVariable int id) {
         return ResponseEntity.ok(service.getTheaterLocationById(id));
     }
 
-    @PutMapping("/updateTheaterLocation")
+    @PutMapping("/locations")
     public ResponseEntity<TheaterLocation> updateTheaterLocation(@RequestBody TheaterLocation theaterLocation) {
         return ResponseEntity.ok().body(service.updateTheaterLocation(theaterLocation));
     }
@@ -45,7 +45,7 @@ public class TheaterLocationController {
         return ResponseEntity.ok().body(service.updateTheaterLocationById(theaterLocation));
     }
 
-    @DeleteMapping("/deleteTheaterLocation/{id}")
+    @DeleteMapping("/locations/{id}")
     public ResponseEntity<String> deleteTheaterLocation(@PathVariable int id) {
         return ResponseEntity.ok(service.deleteById(id));
     }
