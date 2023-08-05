@@ -39,7 +39,7 @@ public class TicletController {
 
     @PutMapping("/updateTicket")
     public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket) {
-        return ResponseEntity.ok().body(service.updateTicketById(ticket));
+        return ResponseEntity.ok().body(service.updateTicket(ticket));
     }
 
     @DeleteMapping("/deleteTicket/{tid}/{tc_id}")

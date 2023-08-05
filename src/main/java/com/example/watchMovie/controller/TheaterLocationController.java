@@ -37,7 +37,7 @@ public class TheaterLocationController {
 
     @PutMapping("/updateTheaterLocation")
     public ResponseEntity<TheaterLocation> updateTheaterLocation(@RequestBody TheaterLocation theaterLocation) {
-        return ResponseEntity.ok().body(service.updateTheaterLocationById(theaterLocation));
+        return ResponseEntity.ok().body(service.updateTheaterLocation(theaterLocation));
     }
 
     @DeleteMapping("/deleteTheaterLocation/{id}")

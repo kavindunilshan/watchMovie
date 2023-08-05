@@ -29,7 +29,7 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    public User updateUserById(User user) {
+    public User updateUser(User user) {
         Optional<User> userFound = userRepository.findById(user.getId());
         if (userFound.isPresent()) {
             User userUpdate = userFound.get();

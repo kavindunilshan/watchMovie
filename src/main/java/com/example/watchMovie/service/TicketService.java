@@ -30,7 +30,7 @@ public class TicketService {
         return ticketRepository.findById(id).orElse(null);
     }
 
-    public Ticket updateTicketById(Ticket ticket) {
+    public Ticket updateTicket(Ticket ticket) {
         Optional<Ticket> ticketFound = ticketRepository.findById(ticket.getTicketId());
         if (ticketFound.isPresent()) {
             Ticket ticketUpdate = ticketFound.get();

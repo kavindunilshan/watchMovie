@@ -30,7 +30,7 @@ public class HallService {
         return hallRepository.findById(id).orElse(null);
     }
 
-    public Hall updateHallById(Hall hall) {
+    public Hall updateHall(Hall hall) {
         Optional<Hall> hallFound = hallRepository.findById(hall.getId());
         if (hallFound.isPresent()) {
             Hall hallUpdate = hallFound.get();

@@ -41,7 +41,7 @@ public class TheaterMovieController {
 
     @PutMapping("/updateTheaterMovie")
     public ResponseEntity<TheaterMovie> updateTheaterMovie(@RequestBody TheaterMovie theaterMovie) {
-        return ResponseEntity.ok().body(service.updateTheaterMovieById(theaterMovie));
+        return ResponseEntity.ok().body(service.updateTheaterMovie(theaterMovie));
     }
 
     @DeleteMapping("/deleteTheaterMovie/{tid}/{hid}/{mid}")

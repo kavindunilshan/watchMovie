@@ -30,7 +30,7 @@ public class PictureService {
         return pictureRepository.findById(id).orElse(null);
     }
 
-    public Picture updatePictureById(Picture picture) {
+    public Picture updatePicture(Picture picture) {
         Optional<Picture> pictureFound = pictureRepository.findById(picture.getId());
         if (pictureFound.isPresent()) {
             Picture pictureUpdate = pictureFound.get();

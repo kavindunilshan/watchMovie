@@ -29,7 +29,7 @@ public class TheaterLocationService {
         return theaterLocationRepository.findById(tid).orElse(null);
     }
 
-    public TheaterLocation updateTheaterLocationById(TheaterLocation theaterLocation) {
+    public TheaterLocation updateTheaterLocation(TheaterLocation theaterLocation) {
         Optional<TheaterLocation> theaterLocationFound = theaterLocationRepository.findById(theaterLocation.getTid());
         if (theaterLocationFound.isPresent()) {
             TheaterLocation theaterLocationUpdate = theaterLocationFound.get();

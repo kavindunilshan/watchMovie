@@ -39,7 +39,7 @@ public class MovieController {
 
     @PutMapping("/updateMovie")
     public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
-        return ResponseEntity.ok().body(service.updateMovieById(movie));
+        return ResponseEntity.ok().body(service.updateMovie(movie));
     }
 
     @DeleteMapping("/deleteMovie/{id}")

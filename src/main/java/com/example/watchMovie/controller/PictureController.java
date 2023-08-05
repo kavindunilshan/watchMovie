@@ -39,7 +39,7 @@ public class PictureController {
 
     @PutMapping("/updatePicture")
     public ResponseEntity<Picture> updatePicture(@RequestBody Picture picture) {
-        return ResponseEntity.ok().body(service.updatePictureById(picture));
+        return ResponseEntity.ok().body(service.updatePicture(picture));
     }
 
     @DeleteMapping("/deletePicture/{mid}/{pid}")

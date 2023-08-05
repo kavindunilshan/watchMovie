@@ -30,7 +30,7 @@ public class TheaterMovieService {
         return theaterMovieRepository.findById(id).orElse(null);
     }
 
-    public TheaterMovie updateTheaterMovieById(TheaterMovie theaterMovie) {
+    public TheaterMovie updateTheaterMovie(TheaterMovie theaterMovie) {
         Optional<TheaterMovie> theaterMovieFound = theaterMovieRepository.findById(theaterMovie.getId());
         if (theaterMovieFound.isPresent()) {
             TheaterMovie theaterMovieUpdate = theaterMovieFound.get();

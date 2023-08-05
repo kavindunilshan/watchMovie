@@ -39,8 +39,14 @@ public class HallController {
 
     @PutMapping("/updateHall")
     public ResponseEntity<Hall> updateHall(@RequestBody Hall hall) {
-        return ResponseEntity.ok().body(service.updateHallById(hall));
+        return ResponseEntity.ok().body(service.updateHall(hall));
     }
+
+//    @PutMapping("/updateHalls/{tid}/{hid}")
+//    public ResponseEntity<Hall> updateHalls(@PathVariable int tid, @PathVariable int hid) {
+//        HallId id = new HallId(tid, hid);
+//        return ResponseEntity.ok().body(service.updateHallById(hall));
+//    }
 
     @DeleteMapping("/deleteHall/{tid}/{hid}")
     public ResponseEntity<String> deleteHall(@PathVariable int tid, @PathVariable int hid) {

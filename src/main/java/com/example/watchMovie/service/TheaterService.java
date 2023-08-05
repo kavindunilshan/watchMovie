@@ -29,7 +29,7 @@ public class TheaterService {
         return theaterRepository.findById(tid).orElse(null);
     }
 
-    public Theater updateTheaterById(Theater theater) {
+    public Theater updateTheater(Theater theater) {
         Optional<Theater> theaterFound = theaterRepository.findById(theater.getTid());
         if (theaterFound.isPresent()) {
             Theater theaterUpdate = theaterFound.get();
