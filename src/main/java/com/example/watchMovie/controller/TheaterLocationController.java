@@ -20,7 +20,7 @@ public class TheaterLocationController {
         return ResponseEntity.ok(this.service.createTheaterLocation(theaterLocation));
     }
 
-    @PostMapping("/locations")
+    @PostMapping("/locationsList")
     public ResponseEntity<List<TheaterLocation>> createTheaterLocations(@RequestBody List<TheaterLocation> theaterLocations) {
         return ResponseEntity.ok(service.createTheaterLocationList(theaterLocations));
     }
@@ -40,7 +40,7 @@ public class TheaterLocationController {
         return ResponseEntity.ok().body(service.updateTheaterLocation(theaterLocation));
     }
 
-    @PatchMapping("/updateTheaterLocation")
+    @PatchMapping("/locations")
     public ResponseEntity<TheaterLocation> updateTheaterLocationPart(@RequestBody TheaterLocation theaterLocation) {
         return ResponseEntity.ok().body(service.updateTheaterLocationById(theaterLocation));
     }

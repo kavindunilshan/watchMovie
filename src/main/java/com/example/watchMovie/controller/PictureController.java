@@ -15,13 +15,13 @@ public class PictureController {
     @Autowired
     private PictureService service;
 
-    @PostMapping("/addPicture")
+    @PostMapping("/pictures")
     public ResponseEntity<Picture> createPicture(@RequestBody Picture picture) {
         System.out.println(picture);
         return ResponseEntity.ok(this.service.createPicture(picture));
     }
 
-    @PostMapping("/addPictures")
+    @PostMapping("/picturesList")
     public ResponseEntity<List<Picture>> createPictures(@RequestBody List<Picture> pictures) {
         return ResponseEntity.ok(service.createPictureList(pictures));
     }

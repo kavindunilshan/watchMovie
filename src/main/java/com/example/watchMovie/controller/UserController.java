@@ -20,7 +20,7 @@ public class UserController {
         return ResponseEntity.ok(this.service.createUser(user));
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users/List")
     public ResponseEntity<List<User>> createUsers(@RequestBody List<User> users) {
         return ResponseEntity.ok(service.createUserList(users));
     }

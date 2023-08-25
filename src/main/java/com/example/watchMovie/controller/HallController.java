@@ -22,7 +22,7 @@ public class HallController {
         return ResponseEntity.ok(this.service.createHall(hall));
     }
 
-    @PostMapping("/halls")
+    @PostMapping("/hallsList")
     public ResponseEntity<List<Hall>> createHalls(@RequestBody List<Hall> halls) {
         return ResponseEntity.ok(service.createHallList(halls));
     }

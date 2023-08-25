@@ -22,7 +22,7 @@ public class MovieController {
         return ResponseEntity.ok(this.service.createMovie(movie));
     }
 
-    @PostMapping("/movies")
+    @PostMapping("/moviesList")
     public ResponseEntity<List<Movie>> createMovies(@RequestBody List<Movie> movies) {
         return ResponseEntity.ok(service.createMovieList(movies));
     }

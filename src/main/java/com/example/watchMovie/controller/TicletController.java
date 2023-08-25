@@ -21,7 +21,7 @@ public class TicletController {
         return ResponseEntity.ok(this.service.createTicket(ticket));
     }
 
-    @PostMapping("/tickets")
+    @PostMapping("/ticketsList")
     public ResponseEntity<List<Ticket>> createTickets(@RequestBody List<Ticket> tickets) {
         return ResponseEntity.ok(service.createTicketList(tickets));
     }

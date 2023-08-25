@@ -20,7 +20,7 @@ public class CastController {
         return ResponseEntity.ok(this.service.createCast(cast));
     }
 
-    @PostMapping("/casts")
+    @PostMapping("/castsList")
     public ResponseEntity<List<Cast>> createCasts(@RequestBody List<Cast> casts) {
         return ResponseEntity.ok(service.createCastList(casts));
     }

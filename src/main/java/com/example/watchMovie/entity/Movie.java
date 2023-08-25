@@ -35,6 +35,10 @@ public class Movie {
     @JoinColumn(name = "mid")
     private List<Picture> pictures;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mid")
+    private List<MovieCast> casts;
+
     public int getMid() {
         return mid;
     }
