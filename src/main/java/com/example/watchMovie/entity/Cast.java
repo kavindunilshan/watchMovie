@@ -3,7 +3,7 @@ package com.example.watchMovie.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name="casts")
 public class Cast {
 
     // comment added

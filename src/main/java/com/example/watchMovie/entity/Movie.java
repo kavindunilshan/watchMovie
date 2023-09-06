@@ -12,7 +12,7 @@ public class Movie {
     private int mid;
 
     @Column
-    private int duration;
+    private String duration;
 
     @Column
     private String name;
@@ -25,6 +25,58 @@ public class Movie {
 
     @Column
     private String director;
+
+    @Column
+    private String language;
+
+    @Column
+    private String trailer;
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    @Column
+    private String genre;
+
+    public String getImdb() {
+        return imdb;
+    }
+
+    public void setImdb(String imdb) {
+        this.imdb = imdb;
+    }
+
+    public List<MovieCast> getCasts() {
+        return casts;
+    }
+
+    public void setCasts(List<MovieCast> casts) {
+        this.casts = casts;
+    }
+
+    @Column
+    private String imdb;
 
 //    @ElementCollection
 //    @CollectionTable(name = "pictures", joinColumns = @JoinColumn(name = "mid"))
@@ -71,11 +123,11 @@ public class Movie {
         this.actress = actress;
     }
 
-    public int getDuration() {
+    public String  getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String  duration) {
         this.duration = duration;
     }
 

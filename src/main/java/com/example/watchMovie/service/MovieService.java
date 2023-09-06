@@ -61,7 +61,7 @@ public class MovieService {
             if(0 < movie.getActress().length())
                 movieUpdate.setActress(movie.getActress());
 
-            if(0 < movie.getDuration())
+            if(0 < movie.getDuration().length())
                 movieUpdate.setDuration(movie.getDuration());
 
             if(0 < movie.getDirector().length())
