@@ -17,23 +17,23 @@ public class SeatDataController {
     @Autowired
     private SeatDataService service;
 
-    @PostMapping("/seatDatas")
+    @PostMapping("/seatData")
     public ResponseEntity<SeatData> createSeatData(@RequestBody SeatData seatData) {
         System.out.println(seatData);
         return ResponseEntity.ok(this.service.createSeatData(seatData));
     }
 
-    @PostMapping("/seatDatasList")
+    @PostMapping("/seatDataList")
     public ResponseEntity<List<SeatData>> createSeatDatas(@RequestBody List<SeatData> seatDatas) {
         return ResponseEntity.ok(service.createSeatDataList(seatDatas));
     }
 
-    @GetMapping("/seatDatas")
+    @GetMapping("/seatData")
     public ResponseEntity<List<SeatData>> getSeatDatas() {
         return ResponseEntity.ok(service.getSeatDataList());
     }
 
-    @GetMapping("/seatDatas/{tid}/{hid}/{mid}")
+    @GetMapping("/seatData/{tid}/{hid}/{mid}")
     public ResponseEntity<SeatData> getSeatDataById(@PathVariable int tid,
                                                             @PathVariable int mid, @PathVariable String timeSlot,
                                                             @PathVariable String date) 
@@ -42,17 +42,17 @@ public class SeatDataController {
         return ResponseEntity.ok(service.getSeatDataById(id));
     }
 
-    @PutMapping("/seatDatas")
+    @PutMapping("/seatData")
     public ResponseEntity<SeatData> updateSeatData(@RequestBody SeatData seatData) {
         return ResponseEntity.ok().body(service.updateSeatData(seatData));
     }
 
-    @PatchMapping("/seatDatas")
+    @PatchMapping("/seatData")
     public ResponseEntity<SeatData> updateSeatDataPart(@RequestBody SeatData seatData) {
         return ResponseEntity.ok().body(service.updateSeatDataById(seatData));
     }
 
-    @DeleteMapping("/seatDatas/{tid}/{hid}/{mid}")
+    @DeleteMapping("/seatData/{tid}/{hid}/{mid}")
     public ResponseEntity<String> deleteSeatData
             (@PathVariable int tid,
              @PathVariable int mid, @PathVariable String timeSlot,
