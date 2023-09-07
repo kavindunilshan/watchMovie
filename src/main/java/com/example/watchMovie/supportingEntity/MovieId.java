@@ -7,7 +7,9 @@ import java.io.Serializable;
 
 @Embeddable
 public class MovieId implements Serializable {
-    private HallId hallId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "tid", nullable = false)
+    private int tid;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "mid", nullable = false)
@@ -16,17 +18,17 @@ public class MovieId implements Serializable {
     public MovieId() {
     }
 
-    public MovieId(HallId hallId, int mid) {
-        this.hallId = hallId;
+    public MovieId(int tid, int mid) {
+        this.tid = tid;
         this.mid = mid;
     }
 
-    public HallId getHallId() {
-        return hallId;
+    public int getTid() {
+        return tid;
     }
 
-    public void setHallId(HallId hallId) {
-        this.hallId = hallId;
+    public void setTid(int tid) {
+        this.tid = tid;
     }
 
     public int getMid() {
@@ -40,8 +42,9 @@ public class MovieId implements Serializable {
     @Override
     public String toString() {
         return "MovieId{" +
-                "hallId=" + hallId +
+                "tid=" + tid +
                 ", mid=" + mid +
                 '}';
     }
+
 }
