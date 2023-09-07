@@ -32,10 +32,10 @@ public class TheaterMovieController {
         return ResponseEntity.ok(service.getTheaterMovieList());
     }
 
-    @GetMapping("/theaterMovies/{tid}/{hid}/{mid}")
-    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable int tid, @PathVariable int hid,
+    @GetMapping("/theaterMovies/{tid}/{mid}")
+    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable int tid,
                                                             @PathVariable int mid) {
-        MovieId id = new MovieId(new HallId(tid, hid), mid);
+        MovieId id = new MovieId(tid, mid);
         return ResponseEntity.ok(service.getTheaterMovieById(id));
     }
 
@@ -49,11 +49,11 @@ public class TheaterMovieController {
         return ResponseEntity.ok().body(service.updateTheaterMovieById(theaterMovie));
     }
 
-    @DeleteMapping("/theaterMovies/{tid}/{hid}/{mid}")
+    @DeleteMapping("/theaterMovies/{tid}/{mid}")
     public ResponseEntity<String> deleteTheaterMovie
-            (@PathVariable int tid, @PathVariable int hid,
+            (@PathVariable int tid,
              @PathVariable int mid) {
-        MovieId id = new MovieId(new HallId(tid, hid), mid);
+        MovieId id = new MovieId(tid, mid);
         return ResponseEntity.ok(service.deleteById(id));
     }
 
