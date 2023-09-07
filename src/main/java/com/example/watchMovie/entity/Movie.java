@@ -32,6 +32,26 @@ public class Movie {
     @Column
     private String trailer;
 
+    @Column
+    private String imdb;
+
+    @Column
+    private String genre;
+
+    @Column
+    private String dimesion;
+
+    @Column
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getLanguage() {
         return language;
     }
@@ -48,6 +68,14 @@ public class Movie {
         this.trailer = trailer;
     }
 
+    public String getDimesion() {
+        return dimesion;
+    }
+
+    public void setDimesion(String dimesion) {
+        this.dimesion = dimesion;
+    }
+
     public String getGenre() {
         return genre;
     }
@@ -55,9 +83,6 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-
-    @Column
-    private String genre;
 
     public String getImdb() {
         return imdb;
@@ -74,9 +99,6 @@ public class Movie {
     public void setCasts(List<MovieCast> casts) {
         this.casts = casts;
     }
-
-    @Column
-    private String imdb;
 
 //    @ElementCollection
 //    @CollectionTable(name = "pictures", joinColumns = @JoinColumn(name = "mid"))
