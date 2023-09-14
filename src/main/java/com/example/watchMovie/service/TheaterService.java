@@ -51,7 +51,7 @@ public class TheaterService {
             if(0 < theater.getName().length())
                 theaterUpdate.setName(theater.getName());
 
-            if(0 < theater.getContactNumber())
+            if(0 < theater.getContactNumber().length())
                 theaterUpdate.setContactNumber(theater.getContactNumber());
 
             if(theater.getLocation() != null)

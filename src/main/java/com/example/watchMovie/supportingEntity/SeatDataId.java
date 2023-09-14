@@ -8,16 +8,19 @@ import java.io.Serializable;
 
 @Embeddable
 public class SeatDataId implements Serializable {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "tid", nullable = false)
     private int tid;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "mid", nullable = false)
     private int mid;
 
-    @Column(name = "slot", nullable = false)
+    @Column(name = "slot", nullable = false, length = 8)
     private String timeSlot;
 
-    @Column(name = "date", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "date", nullable = false, length = 8)
     private String date;
 
 

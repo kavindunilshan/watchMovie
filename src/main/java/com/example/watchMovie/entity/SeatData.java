@@ -1,17 +1,11 @@
 package com.example.watchMovie.entity;
 
-import com.example.watchMovie.supportingEntity.MovieId;
 import com.example.watchMovie.supportingEntity.SeatDataId;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="seat_data")
-@NoArgsConstructor
-@AllArgsConstructor
+@Table
 public class SeatData {
     @EmbeddedId
     private SeatDataId id;
@@ -21,6 +15,15 @@ public class SeatData {
 
     @Column
     private String seats;
+
+    public SeatData() {
+    }
+
+    public SeatData(SeatDataId id, int numSeats, String seats) {
+        this.id = id;
+        this.numSeats = numSeats;
+        this.seats = seats;
+    }
 
     public SeatDataId getId() {
         return id;
@@ -44,5 +47,14 @@ public class SeatData {
 
     public void setSeats(String seats) {
         this.seats = seats;
+    }
+
+    @Override
+    public String toString() {
+        return "SeatData{" +
+                "id=" + id +
+                ", numSeats=" + numSeats +
+                ", seats='" + seats + '\'' +
+                '}';
     }
 }

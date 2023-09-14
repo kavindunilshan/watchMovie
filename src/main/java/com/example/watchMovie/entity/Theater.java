@@ -1,8 +1,5 @@
 package com.example.watchMovie.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class Theater {
     private String name;
 
     @Column
-    private int contactNumber;
+    private String contactNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
@@ -28,6 +25,18 @@ public class Theater {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
     private List<Hall> halls;
+
+    public List<SeatData> getSeatDataList() {
+        return seatDataList;
+    }
+
+    public void setSeatDataList(List<SeatData> seatDataList) {
+        this.seatDataList = seatDataList;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tid")
+    private List<SeatData> seatDataList;
 
     public TheaterLocation getLocation() {
         return location;
@@ -53,11 +62,11 @@ public class Theater {
         this.name = name;
     }
 
-    public int getContactNumber() {
+    public String  getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
