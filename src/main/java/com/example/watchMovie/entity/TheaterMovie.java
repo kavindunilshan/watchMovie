@@ -11,17 +11,22 @@ public class TheaterMovie {
     private MovieId id;
 
     @Column
-    private int price;
+    private int fullPrice;
 
     @Column
-    private String timeSlot;
-
-    @Column
-    private String dimension;
+    private int halfPrice;
 
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "mid", insertable = false, updatable = false)
     private Movie movie;
+
+    public int getHalfPrice() {
+        return halfPrice;
+    }
+
+    public void setHalfPrice(int halfPrice) {
+        this.halfPrice = halfPrice;
+    }
 
     public Movie getMovie() {
         return movie;
@@ -39,27 +44,12 @@ public class TheaterMovie {
         this.id = id;
     }
 
-    public int getPrice() {
-        return price;
+    public int getFullPrice() {
+        return fullPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setFullPrice(int fullPrice) {
+        this.fullPrice = fullPrice;
     }
 
-    public String getTimeSlot() {
-        return timeSlot;
-    }
-
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
-    }
-
-    public String getDimension() {
-        return dimension;
-    }
-
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
-    }
 }

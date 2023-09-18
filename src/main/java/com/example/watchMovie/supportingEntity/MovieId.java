@@ -15,6 +15,10 @@ public class MovieId implements Serializable {
     @Column(name = "mid", nullable = false)
     private int mid;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="time_slot", nullable = false, length = 12)
+    private String timeSlot;
+
     public MovieId() {
     }
 

@@ -35,9 +35,7 @@ public class TheaterMovieService {
         Optional<TheaterMovie> theaterMovieFound = theaterMovieRepository.findById(theaterMovie.getId());
         if (theaterMovieFound.isPresent()) {
             TheaterMovie theaterMovieUpdate = theaterMovieFound.get();
-            theaterMovieUpdate.setDimension(theaterMovie.getDimension());
-            theaterMovieUpdate.setTimeSlot(theaterMovie.getTimeSlot());
-            theaterMovieUpdate.setPrice(theaterMovie.getPrice());
+            theaterMovieUpdate.setFullPrice(theaterMovie.getFullPrice());
 
             return theaterMovieRepository.save(theaterMovie);
         } else {
@@ -50,14 +48,8 @@ public class TheaterMovieService {
         if (theaterMovieFound.isPresent()) {
             TheaterMovie theaterMovieUpdate = theaterMovieFound.get();
 
-            if(0 < theaterMovie.getDimension().length())
-                theaterMovieUpdate.setDimension(theaterMovie.getDimension());
-
-            if(0 < theaterMovie.getTimeSlot().length())
-                theaterMovieUpdate.setTimeSlot(theaterMovie.getTimeSlot());
-
-            if(0 < theaterMovie.getPrice())
-                theaterMovieUpdate.setPrice(theaterMovie.getPrice());
+            if(0 < theaterMovie.getFullPrice())
+                theaterMovieUpdate.setFullPrice(theaterMovie.getFullPrice());
 
             if(theaterMovie.getMovie() != null)
                 theaterMovieUpdate.setMovie(theaterMovie.getMovie());
