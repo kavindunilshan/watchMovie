@@ -18,6 +18,9 @@ public class Theater {
     @Column
     private String contactNumber;
 
+    @Column
+    private String ratings;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
     private TheaterLocation location;
@@ -44,6 +47,14 @@ public class Theater {
 
     public void setLocation(TheaterLocation location) {
         this.location = location;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
     }
 
     public int getTid() {
