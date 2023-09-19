@@ -50,6 +50,15 @@ public class HallService {
             if(0 < hall.getSeats()){
                 hallUpdate.setSeats(hall.getSeats());
             }
+
+            if(0 < hall.getColumns()){
+                hallUpdate.setColumns(hall.getColumns());
+            }
+
+            if(0 < hall.getRows()) {
+                hallUpdate.setRows(hall.getRows());
+            }
+
             return hallRepository.save(hallUpdate);
 
         } else {
