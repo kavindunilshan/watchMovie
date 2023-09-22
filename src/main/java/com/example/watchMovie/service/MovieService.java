@@ -30,6 +30,10 @@ public class MovieService {
         return movieRepository.findById(id).orElse(null);
     }
 
+    public List<Movie> getMovieByIds(List<Integer> id) {
+        return movieRepository.findAllById(id);
+    }
+
     public Movie updateMovie(Movie movie) {
         Optional<Movie> movieFound = movieRepository.findById(movie.getMid());
         if (movieFound.isPresent()) {

@@ -28,8 +28,13 @@ public class TheaterMovieController {
     }
 
     @GetMapping("/theaterMovies")
-    public ResponseEntity<List<TheaterMovie>> getTheaterMovies() {
-        return ResponseEntity.ok(service.getTheaterMovieList());
+    public ResponseEntity<List<TheaterMovie>> getAllTheaterMovies() {
+        return ResponseEntity.ok(service.getAllTheaterMovieList());
+    }
+
+    @GetMapping("/theaterMovies/{tid}")
+    public ResponseEntity<List<TheaterMovie>> getTheaterMovies(@PathVariable int tid) {
+        return ResponseEntity.ok(service.getTheaterMovieList(tid));
     }
 
     @GetMapping("/theaterMovies/{tid}/{mid}")

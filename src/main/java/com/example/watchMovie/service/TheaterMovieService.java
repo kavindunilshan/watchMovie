@@ -23,13 +23,18 @@ public class TheaterMovieService {
         return theaterMovieRepository.saveAll(list);
     }
 
-    public List<TheaterMovie> getTheaterMovieList() {
+    public List<TheaterMovie> getAllTheaterMovieList() {
         return theaterMovieRepository.findAll();
     }
 
     public TheaterMovie getTheaterMovieById(MovieId id) {
         return theaterMovieRepository.findById(id).orElse(null);
     }
+
+    public List<TheaterMovie> getTheaterMovieList(int tid) {
+        return theaterMovieRepository.findAllById_Tid(tid);
+    }
+
 
     public TheaterMovie updateTheaterMovie(TheaterMovie theaterMovie) {
         Optional<TheaterMovie> theaterMovieFound = theaterMovieRepository.findById(theaterMovie.getId());
