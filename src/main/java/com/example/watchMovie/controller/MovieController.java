@@ -37,6 +37,11 @@ public class MovieController {
         return ResponseEntity.ok(service.getMovieById(id));
     }
 
+    @GetMapping("/movies/list")
+    public ResponseEntity<List<Movie>> getMovieByIds(@RequestBody List<Integer> id) {
+        return ResponseEntity.ok(service.getMovieByIds(id));
+    }
+
     @PutMapping("/movies")
     public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
         return ResponseEntity.ok().body(service.updateMovie(movie));
