@@ -26,7 +26,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(int id) {
+    public User getUserById(String id) {
         return userRepository.findById(id).orElse(null);
     }
 
@@ -76,7 +76,7 @@ public class UserService {
         }
     }
 
-    public String deleteById(int id) {
+    public String deleteById(String  id) {
         userRepository.deleteById(id);
         return "User " + id + " is deleted.";
     }

@@ -55,8 +55,8 @@ public class HallService {
                 hallUpdate.setColumns(hall.getColumns());
             }
 
-            if(0 < hall.getRows()) {
-                hallUpdate.setRows(hall.getRows());
+            if(0 < hall.getNrows()) {
+                hallUpdate.setNrows(hall.getNrows());
             }
 
             return hallRepository.save(hallUpdate);

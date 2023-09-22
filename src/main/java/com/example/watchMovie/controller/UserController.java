@@ -14,7 +14,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         System.out.println(user);
         return ResponseEntity.ok(this.service.createUser(user));
@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
+    public ResponseEntity<User> getUserById(@PathVariable String id) {
         return ResponseEntity.ok(service.getUserById(id));
     }
 
@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable String id) {
         return ResponseEntity.ok(service.deleteById(id));
     }
 

@@ -8,9 +8,8 @@ public class User {
 
     // comment added
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
-    private int id;
+    @Column(length = 30)
+    private String id;
 
     @Column
     private int age;
@@ -31,11 +30,11 @@ public class User {
     @Column
     private String password;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

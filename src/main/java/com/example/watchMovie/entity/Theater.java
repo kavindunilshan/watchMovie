@@ -19,7 +19,13 @@ public class Theater {
     private String contactNumber;
 
     @Column
+    private String slogan;
+
+    @Column
     private String ratings;
+
+    @Column
+    private String dimension;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
@@ -28,6 +34,27 @@ public class Theater {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
     private List<Hall> halls;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tid")
+    private List<TheaterPicture> pictures;
+
+    public String getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
+    }
+
+    public List<TheaterPicture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<TheaterPicture> pictures) {
+        this.pictures = pictures;
+    }
+
 
     public List<SeatData> getSeatDataList() {
         return seatDataList;
@@ -40,6 +67,14 @@ public class Theater {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
     private List<SeatData> seatDataList;
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
 
     public TheaterLocation getLocation() {
         return location;

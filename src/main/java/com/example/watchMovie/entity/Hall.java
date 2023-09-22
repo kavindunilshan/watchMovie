@@ -15,7 +15,7 @@ public class Hall {
     private int seats;
 
     @Column
-    private int rows;
+    private int nrows;
 
     @Column
     private int columns;
@@ -24,12 +24,12 @@ public class Hall {
     @JoinColumns({@JoinColumn(name = "tid"), @JoinColumn(name = "hid")})
     private List<TheaterMovie> movies;
 
-    public int getRows() {
-        return rows;
+    public int getNrows() {
+        return nrows;
     }
 
-    public void setRows(int rows) {
-        this.rows = rows;
+    public void setNrows(int nrows) {
+        this.nrows = nrows;
     }
 
     public int getColumns() {
