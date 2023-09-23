@@ -44,6 +44,11 @@ public class TheaterMovieController {
         return ResponseEntity.ok(service.getTheaterMovieById(id));
     }
 
+    @GetMapping("/theaterMovies/{tid}")
+    public ResponseEntity<List<TheaterMovie>> getTheaterMovies(@PathVariable int tid) {
+        return ResponseEntity.ok(service.getTheaterMovieList(tid));
+    }
+
     @PutMapping("/theaterMovies")
     public ResponseEntity<TheaterMovie> updateTheaterMovie(@RequestBody TheaterMovie theaterMovie) {
         return ResponseEntity.ok().body(service.updateTheaterMovie(theaterMovie));

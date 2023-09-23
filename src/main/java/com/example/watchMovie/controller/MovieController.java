@@ -4,11 +4,15 @@ import com.example.watchMovie.entity.Movie;
 import com.example.watchMovie.service.MovieService;
 import com.example.watchMovie.supportingEntity.HallId;
 import com.example.watchMovie.supportingEntity.MovieId;
+import com.example.watchMovie.supportingEntity.MovieIdList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -38,8 +42,10 @@ public class MovieController {
     }
 
     @GetMapping("/movies/list")
-    public ResponseEntity<List<Movie>> getMovieByIds(@RequestBody List<Integer> id) {
-        return ResponseEntity.ok(service.getMovieByIds(id));
+    public ResponseEntity<List<Movie>> getMovieByIds(@RequestParam("items") String list) {
+        List<String > data = Arrays.asList(list.split(","));
+        List<Integer> ids = data.stream().map(Integer::parseInt).collect(Collectors.toList());
+        return ResponseEntity.ok(service.getMovieByIds(ids));
     }
 
     @PutMapping("/movies")

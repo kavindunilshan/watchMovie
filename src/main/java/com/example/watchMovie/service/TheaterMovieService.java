@@ -35,7 +35,6 @@ public class TheaterMovieService {
         return theaterMovieRepository.findAllById_Tid(tid);
     }
 
-
     public TheaterMovie updateTheaterMovie(TheaterMovie theaterMovie) {
         Optional<TheaterMovie> theaterMovieFound = theaterMovieRepository.findById(theaterMovie.getId());
         if (theaterMovieFound.isPresent()) {
