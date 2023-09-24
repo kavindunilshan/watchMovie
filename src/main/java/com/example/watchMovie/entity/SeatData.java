@@ -16,13 +16,17 @@ public class SeatData {
     @Column
     private String seats;
 
+    @Column
+    private int hid;
+
     public SeatData() {
     }
 
-    public SeatData(SeatDataId id, int numSeats, String seats) {
+    public SeatData(SeatDataId id, int numSeats, String seats, int hid) {
         this.id = id;
         this.numSeats = numSeats;
         this.seats = seats;
+        this.hid = hid;
     }
 
     public SeatDataId getId() {
@@ -47,6 +51,14 @@ public class SeatData {
 
     public void setSeats(String seats) {
         this.seats = seats;
+    }
+
+    public int getHid() {
+        return hid;
+    }
+
+    public void setHid(int hid) {
+        this.hid = hid;
     }
 
     @Override

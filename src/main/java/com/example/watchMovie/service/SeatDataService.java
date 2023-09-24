@@ -52,6 +52,9 @@ public class SeatDataService {
             if(0 < seatData.getNumSeats())
                 seatDataUpdate.setNumSeats(seatData.getNumSeats());
 
+            if(0 < seatData.getHid())
+                seatDataUpdate.setHid(seatData.getHid());
+
             if(0 < seatData.getSeats().length())
                 seatDataUpdate.setSeats(seatData.getSeats());
 
