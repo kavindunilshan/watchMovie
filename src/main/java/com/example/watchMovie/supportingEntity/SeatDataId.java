@@ -20,7 +20,7 @@ public class SeatDataId implements Serializable {
     private String timeSlot;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "date", nullable = false, length = 8)
+    @Column(name = "date", nullable = false, length = 12)
     private String date;
 
 
