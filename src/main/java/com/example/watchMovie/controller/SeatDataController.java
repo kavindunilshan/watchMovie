@@ -31,12 +31,14 @@ public class SeatDataController {
         return ResponseEntity.ok(service.getSeatDataList());
     }
 
-    @GetMapping("/seatData/{tid}/{hid}/{mid}")
+    @GetMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
     public ResponseEntity<SeatData> getSeatDataById(@PathVariable int tid,
-                                                            @PathVariable int mid, @PathVariable String timeSlot,
+                                                            @PathVariable int mid,
+                                                    @PathVariable String timeSlot,
                                                             @PathVariable String date) 
     {
-        SeatDataId id = new SeatDataId(tid, mid, timeSlot, date);
+        String date1 = date.replace("s", "/");
+        SeatDataId id = new SeatDataId(tid, mid, timeSlot, date1);
         return ResponseEntity.ok(service.getSeatDataById(id));
     }
 
@@ -50,7 +52,7 @@ public class SeatDataController {
         return ResponseEntity.ok().body(service.updateSeatDataById(seatData));
     }
 
-    @DeleteMapping("/seatData/{tid}/{hid}/{mid}")
+    @DeleteMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
     public ResponseEntity<String> deleteSeatData
             (@PathVariable int tid,
              @PathVariable int mid, @PathVariable String timeSlot,
