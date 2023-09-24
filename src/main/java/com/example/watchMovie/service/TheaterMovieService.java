@@ -55,6 +55,9 @@ public class TheaterMovieService {
             if(0 < theaterMovie.getFullPrice())
                 theaterMovieUpdate.setFullPrice(theaterMovie.getFullPrice());
 
+            if(0 < theaterMovie.getHalfPrice())
+                theaterMovieUpdate.setHalfPrice(theaterMovie.getHalfPrice());
+
             if(theaterMovie.getMovie() != null)
                 theaterMovieUpdate.setMovie(theaterMovie.getMovie());
 

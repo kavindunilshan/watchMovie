@@ -22,9 +22,10 @@ public class MovieId implements Serializable {
     public MovieId() {
     }
 
-    public MovieId(int tid, int mid) {
+    public MovieId(int tid, int mid, String timeSlot) {
         this.tid = tid;
         this.mid = mid;
+        this.timeSlot = timeSlot;
     }
 
     public int getTid() {
@@ -43,11 +44,20 @@ public class MovieId implements Serializable {
         this.mid = mid;
     }
 
+    public String getTimeSlot() {
+        return timeSlot;
+    }
+
+    public void setTimeSlot(String timeSlot) {
+        this.timeSlot = timeSlot;
+    }
+
     @Override
     public String toString() {
         return "MovieId{" +
                 "tid=" + tid +
                 ", mid=" + mid +
+                ", timeSlot='" + timeSlot + '\'' +
                 '}';
     }
 
