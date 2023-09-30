@@ -17,10 +17,16 @@ public class Ticket {
     private int mid;
 
     @Column
-    private int fullSeats;
+    private int full;
 
     @Column
-    private int halfSeats;
+    private String slot;
+
+    @Column
+    private String date;
+
+    @Column
+    private int half;
 
     @Column
     private String bookedSeats;
@@ -36,28 +42,12 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    public int getFullSeats() {
-        return fullSeats;
+    public int getUid() {
+        return uid;
     }
 
-    public void setFullSeats(int fullSeats) {
-        this.fullSeats = fullSeats;
-    }
-
-    public int getHalfSeats() {
-        return halfSeats;
-    }
-
-    public void setHalfSeats(int halfSeats) {
-        this.halfSeats = halfSeats;
-    }
-
-    public String getBookedSeats() {
-        return bookedSeats;
-    }
-
-    public void setBookedSeats(String bookedSeats) {
-        this.bookedSeats = bookedSeats;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public int getMid() {
@@ -68,6 +58,46 @@ public class Ticket {
         this.mid = mid;
     }
 
+    public int getFull() {
+        return full;
+    }
+
+    public void setFull(int full) {
+        this.full = full;
+    }
+
+    public String getSlot() {
+        return slot;
+    }
+
+    public void setSlot(String slot) {
+        this.slot = slot;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getHalf() {
+        return half;
+    }
+
+    public void setHalf(int half) {
+        this.half = half;
+    }
+
+    public String getBookedSeats() {
+        return bookedSeats;
+    }
+
+    public void setBookedSeats(String bookedSeats) {
+        this.bookedSeats = bookedSeats;
+    }
+
     public int getTotal() {
         return total;
     }
@@ -76,22 +106,17 @@ public class Ticket {
         this.total = total;
     }
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
     @Override
     public String toString() {
         return "Ticket{" +
                 "ticketId=" + ticketId +
                 ", uid=" + uid +
-                ", fullSeats=" + fullSeats +
+                ", mid=" + mid +
+                ", full=" + full +
+                ", slot='" + slot + '\'' +
+                ", date='" + date + '\'' +
+                ", half=" + half +
                 ", bookedSeats='" + bookedSeats + '\'' +
-                ", halfSeats=" + halfSeats +
                 ", total=" + total +
                 '}';
     }

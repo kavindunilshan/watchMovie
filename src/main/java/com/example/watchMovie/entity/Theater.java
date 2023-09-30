@@ -39,6 +39,26 @@ public class Theater {
     @JoinColumn(name = "tid")
     private List<TheaterPicture> pictures;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tid")
+    private List<SeatData> seatDataList;
+
+    public Theater() {
+    }
+
+    public Theater(int tid, String name, String contactNumber, String slogan, String ratings, String dimension, TheaterLocation location, List<Hall> halls, List<TheaterPicture> pictures, List<SeatData> seatDataList) {
+        this.tid = tid;
+        this.name = name;
+        this.contactNumber = contactNumber;
+        this.slogan = slogan;
+        this.ratings = ratings;
+        this.dimension = dimension;
+        this.location = location;
+        this.halls = halls;
+        this.pictures = pictures;
+        this.seatDataList = seatDataList;
+    }
+
     public String getDimension() {
         return dimension;
     }
@@ -63,10 +83,6 @@ public class Theater {
     public void setSeatDataList(List<SeatData> seatDataList) {
         this.seatDataList = seatDataList;
     }
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tid")
-    private List<SeatData> seatDataList;
 
     public String getSlogan() {
         return slogan;
