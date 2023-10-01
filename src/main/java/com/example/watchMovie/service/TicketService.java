@@ -35,8 +35,8 @@ public class TicketService {
         Optional<Ticket> ticketFound = ticketRepository.findById(ticket.getTicketId());
         if (ticketFound.isPresent()) {
             Ticket ticketUpdate = ticketFound.get();
-            ticketUpdate.setFullSeats(ticket.getFullSeats());
-            ticketUpdate.setHalfSeats(ticket.getHalfSeats());
+            ticketUpdate.setFull(ticket.getFull());
+            ticketUpdate.setHalf(ticket.getHalf());
             ticketUpdate.setBookedSeats(ticket.getBookedSeats());
             ticketUpdate.setTotal(ticket.getTotal());
 
@@ -51,11 +51,11 @@ public class TicketService {
         if (ticketFound.isPresent()) {
             Ticket ticketUpdate = ticketFound.get();
 
-            if(0 < ticketUpdate.getFullSeats())
-                ticketUpdate.setFullSeats(ticket.getFullSeats());
+            if(0 < ticketUpdate.getFull())
+                ticketUpdate.setFull(ticket.getFull());
 
-            if(0 < ticketUpdate.getFullSeats())
-                ticketUpdate.setHalfSeats(ticket.getHalfSeats());
+            if(0 < ticketUpdate.getFull())
+                ticketUpdate.setHalf(ticket.getHalf());
 
             // need to change ------------------------=========
             if(0 < ticketUpdate.getBookedSeats().length())
