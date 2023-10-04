@@ -1,7 +1,14 @@
 package com.example.watchMovie.emailStarergy;
+import com.example.watchMovie.resources.PdfCreator;
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
 public class SMTPEmailStrategy extends EmailSenderStrategy {
@@ -41,7 +48,38 @@ public class SMTPEmailStrategy extends EmailSenderStrategy {
                     InternetAddress.parse(email));
 
             message.setSubject(subject);
-            message.setText(content);
+
+            PdfCreator.createPDF(content);
+
+            // ================================
+            // Create a multipart message
+            Multipart multipart = new MimeMultipart();
+
+            // Text content
+            MimeBodyPart textPart = new MimeBodyPart();
+            textPart.setText("Tickets booked successfully.\n\n\t" +
+                    "Lights, camera, action!" +
+                    " It's time to get ready for an unforgettable cinematic experience with WatchMovie." +
+                    " We're thrilled to have you on board, and your ticket is now ready for the showtime!" +
+                    "\nFind your ticket in attachment." +
+                    "\n\nThanks For Booking With Us!!");
+
+            // Attachment
+            MimeBodyPart attachmentPart = new MimeBodyPart();
+            String attachmentPath = "E:\\watchMovie\\src\\main\\java\\com\\example\\watchMovie\\resources\\examples.pdf"; // Replace with the actual file path
+            DataSource source = new FileDataSource(attachmentPath);
+            attachmentPart.setDataHandler(new DataHandler(source));
+            attachmentPart.setFileName("attachment.pdf"); // Set the desired file name for the attachment
+
+            // Add text and attachment to the multipart message
+            multipart.addBodyPart(textPart);
+            multipart.addBodyPart(attachmentPart);
+
+            // Set the multipart message as the email's content
+            message.setContent(multipart);
+            System.out.println("Started to create a pdf");
+
+            // ================================
 
             Transport.send(message);
 
