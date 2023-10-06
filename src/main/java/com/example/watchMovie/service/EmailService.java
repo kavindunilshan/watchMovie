@@ -9,6 +9,7 @@ import com.example.watchMovie.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -26,7 +27,11 @@ public class EmailService {
             service = new EmailStrategyService(new ThirdPartyEmailStrategy
                     (email.getEmail(), email.getSubject(), email.getContent()));
         }
-        service.sendConfirm();
+        try {
+            service.sendConfirm();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return emailRepository.save(email);
     }
 
