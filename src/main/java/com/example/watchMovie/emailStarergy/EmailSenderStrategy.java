@@ -1,5 +1,7 @@
 package com.example.watchMovie.emailStarergy;
 
+import java.io.IOException;
+
 public abstract class EmailSenderStrategy {
      protected String email;
      protected String subject;
@@ -38,7 +40,7 @@ public abstract class EmailSenderStrategy {
           this.content = content;
      }
 
-     abstract void sendEmail();
+     abstract void sendEmail() throws IOException;
 
      @Override
      public String toString() {
