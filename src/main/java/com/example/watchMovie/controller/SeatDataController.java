@@ -16,13 +16,12 @@ public class SeatDataController {
     private SeatDataService service;
 
     @PostMapping("/seatData")
-    public ResponseEntity<SeatData> createSeatData(@RequestBody SeatData seatData) {
-        System.out.println(seatData);
+    public synchronized ResponseEntity<SeatData> createSeatData(@RequestBody SeatData seatData) {
         return ResponseEntity.ok(this.service.createSeatData(seatData));
     }
 
     @PostMapping("/seatDataList")
-    public ResponseEntity<List<SeatData>> createSeatDatas(@RequestBody List<SeatData> seatDatas) {
+    public synchronized ResponseEntity<List<SeatData>> createSeatDatas(@RequestBody List<SeatData> seatDatas) {
         return ResponseEntity.ok(service.createSeatDataList(seatDatas));
     }
 
