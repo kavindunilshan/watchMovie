@@ -1,5 +1,6 @@
 package com.example.watchMovie.emailStarergy;
 import com.example.watchMovie.resources.PdfCreator;
+import com.example.watchMovie.utils.ConfigReader;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.activation.DataHandler;
@@ -10,16 +11,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.IOException;
 import java.util.Properties;
 
 public class SMTPEmailStrategy extends EmailSenderStrategy {
-
-    @Value("${spring.mail.username}")
-    private static String username;
-
-    @Value("${spring.mail.password}")
-    private static String password;
-
     public SMTPEmailStrategy() {
     }
 
@@ -28,10 +23,10 @@ public class SMTPEmailStrategy extends EmailSenderStrategy {
     }
 
     @Override
-    public void sendEmail() {
-
-//        final String username = "kavinilj10@gmail.com";
-//        final String password = "qfshespookvyxpor";
+    public void sendEmail() throws IOException {
+        final String username = ConfigReader.getUsername();
+        final String password = ConfigReader.getPassword();
+        System.out.println("username working"+ username);
 
         Properties prop = new Properties();
 
