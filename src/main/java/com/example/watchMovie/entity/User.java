@@ -1,21 +1,25 @@
 package com.example.watchMovie.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="users")
 public class User {
 
-    @Column
-    private int id;
+    // comment added
+    @Id
+    @Column(length = 30)
+    private String id;
 
     @Column
     private int age;
 
     @Column
     private String district;
+
+
+    @Column
+    private String fname;
 
     @Column
     private String lname;
@@ -26,11 +30,11 @@ public class User {
     @Column
     private String password;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,6 +52,14 @@ public class User {
 
     public void setDistrict(String district) {
         this.district = district;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
     public String getLname() {
@@ -72,5 +84,18 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", age=" + age +
+                ", district='" + district + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
