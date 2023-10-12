@@ -1,7 +1,6 @@
 package com.example.watchMovie.emailStarergy;
 import com.example.watchMovie.resources.PdfCreator;
 import com.example.watchMovie.utils.ConfigReader;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;

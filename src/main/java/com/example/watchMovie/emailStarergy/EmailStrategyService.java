@@ -2,6 +2,7 @@ package com.example.watchMovie.emailStarergy;
 
 import java.io.IOException;
 
+// Context class
 public class EmailStrategyService {
     private EmailSenderStrategy sender;
 
