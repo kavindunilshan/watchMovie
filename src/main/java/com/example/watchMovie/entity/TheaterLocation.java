@@ -22,6 +22,9 @@ public class TheaterLocation {
     @Column
     private String lang;
 
+    @Column
+    private String address;
+
     public String getAddress() {
         return address;
     }
@@ -29,9 +32,6 @@ public class TheaterLocation {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    @Column
-    private String address;
 
     public int getTid() {
         return tid;

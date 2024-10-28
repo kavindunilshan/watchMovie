@@ -1,10 +1,15 @@
 package com.example.watchMovie.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Table
+@Getter @Setter
 // @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
@@ -26,6 +31,12 @@ public class Theater {
 
     @Column
     private String dimension;
+
+    @Column
+    private String portrait;
+
+    @Column
+    private String landscape;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tid")
@@ -59,86 +70,6 @@ public class Theater {
         this.seatDataList = seatDataList;
     }
 
-    public String getDimension() {
-        return dimension;
-    }
-
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
-    }
-
-    public List<TheaterPicture> getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(List<TheaterPicture> pictures) {
-        this.pictures = pictures;
-    }
-
-
-    public List<SeatData> getSeatDataList() {
-        return seatDataList;
-    }
-
-    public void setSeatDataList(List<SeatData> seatDataList) {
-        this.seatDataList = seatDataList;
-    }
-
-    public String getSlogan() {
-        return slogan;
-    }
-
-    public void setSlogan(String slogan) {
-        this.slogan = slogan;
-    }
-
-    public TheaterLocation getLocation() {
-        return location;
-    }
-
-    public void setLocation(TheaterLocation location) {
-        this.location = location;
-    }
-
-    public String getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
-    }
-
-    public int getTid() {
-        return tid;
-    }
-
-    public void setTid(int tid) {
-        this.tid = tid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String  getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public List<Hall> getHalls() {
-        return halls;
-    }
-
-    public void setHalls(List<Hall> halls) {
-        this.halls = halls;
-    }
 
     @Override
     public String toString() {
