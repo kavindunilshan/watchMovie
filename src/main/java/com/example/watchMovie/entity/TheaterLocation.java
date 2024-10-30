@@ -1,9 +1,16 @@
 package com.example.watchMovie.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
 @Table
+@Getter
+@Setter
+@ToString
 public class TheaterLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,63 +31,4 @@ public class TheaterLocation {
 
     @Column
     private String address;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getTid() {
-        return tid;
-    }
-
-    public void setTid(int tid) {
-        this.tid = tid;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    @Override
-    public String toString() {
-        return "TheaterLocation{" +
-                "tid=" + tid +
-                ", district='" + district + '\'' +
-                ", city='" + city + '\'' +
-                ", lat='" + lat + '\'' +
-                ", lang='" + lang + '\'' +
-                '}';
-    }
 }

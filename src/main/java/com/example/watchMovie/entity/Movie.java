@@ -43,7 +43,7 @@ public class Movie {
     private String genre;
 
     @Column
-    private String dimesion;
+    private String dimension;
 
     @Column
     private String status;

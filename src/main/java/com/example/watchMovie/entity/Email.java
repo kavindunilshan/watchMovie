@@ -1,11 +1,16 @@
 package com.example.watchMovie.entity;
 
-import org.springframework.context.annotation.Primary;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Table
+@Getter
+@Setter
+@ToString
 public class Email {
 
     @Id
@@ -37,62 +42,5 @@ public class Email {
         this.subject = subject;
         this.content = content;
         this.secure = secure;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
-    public boolean isSecure() {
-        return secure;
-    }
-
-    public void setSecure(boolean secure) {
-        this.secure = secure;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    @Override
-    public String toString() {
-        return "Email{" +
-                "email='" + email + '\'' +
-                ", subject='" + subject + '\'' +
-                ", content='" + content + '\'' +
-                '}';
     }
 }

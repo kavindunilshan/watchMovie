@@ -1,12 +1,18 @@
 package com.example.watchMovie.entity;
 
 import com.example.watchMovie.supportingEntity.HallId;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table
+@Getter
+@Setter
+@ToString
 public class Hall {
     @EmbeddedId
     private HallId id;
@@ -24,52 +30,4 @@ public class Hall {
     @JoinColumns({@JoinColumn(name = "tid"), @JoinColumn(name = "hid")})
     private List<TheaterMovie> movies;
 
-    public int getNrows() {
-        return nrows;
-    }
-
-    public void setNrows(int nrows) {
-        this.nrows = nrows;
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public void setColumns(int columns) {
-        this.columns = columns;
-    }
-
-    public HallId getId() {
-        return id;
-    }
-
-    public void setId(HallId id) {
-        this.id = id;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    public List<TheaterMovie> getMovies() {
-        return movies;
-    }
-
-    public void setMovies(List<TheaterMovie> movies) {
-        this.movies = movies;
-    }
-
-    @Override
-    public String toString() {
-        return "Hall{" +
-                "id=" + id +
-                ", seats=" + seats +
-                ", movies=" + movies +
-                '}';
-    }
 }

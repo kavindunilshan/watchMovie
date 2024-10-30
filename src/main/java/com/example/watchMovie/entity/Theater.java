@@ -2,6 +2,7 @@ package com.example.watchMovie.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Table
 @Getter @Setter
+@ToString
 // @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
@@ -68,15 +70,5 @@ public class Theater {
         this.halls = halls;
         this.pictures = pictures;
         this.seatDataList = seatDataList;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Theater{" +
-                "tid=" + tid +
-                ", name='" + name + '\'' +
-                ", contactNumber=" + contactNumber +
-                '}';
     }
 }
