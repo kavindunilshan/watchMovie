@@ -1,14 +1,18 @@
 package com.example.watchMovie.supportingEntity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
+@Getter @Setter
+@ToString
 public class HallId implements Serializable {
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "tid")
-    private int tid;
+    @Column(name = "tid", nullable = false, length = 30)
+    private String  tid;
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hid")
@@ -17,32 +21,8 @@ public class HallId implements Serializable {
     public HallId() {
     }
 
-    public HallId(int tid, int hid) {
+    public HallId(String tid, int hid) {
         this.tid = tid;
         this.hid = hid;
-    }
-
-    public int getTid() {
-        return tid;
-    }
-
-    public void setTid(int tid) {
-        this.tid = tid;
-    }
-
-    public int getHid() {
-        return hid;
-    }
-
-    public void setHid(int hid) {
-        this.hid = hid;
-    }
-
-    @Override
-    public String toString() {
-        return "HallId{" +
-                "tid=" + tid +
-                ", hid=" + hid +
-                '}';
     }
 }

@@ -9,8 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Getter
-@Setter
+@Getter @Setter
 @ToString
 public class SeatData {
     @EmbeddedId

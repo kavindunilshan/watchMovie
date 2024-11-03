@@ -20,7 +20,7 @@ public class CastMovieId implements Serializable {
     public CastMovieId() {
     }
 
-    public CastMovieId(int tid, int hid) {
+    public CastMovieId(String tid, int hid) {
         this.cid = tid;
         this.mid = hid;
     }

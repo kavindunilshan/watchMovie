@@ -33,7 +33,7 @@ public class MovieCastController {
     }
 
     @GetMapping("/movieCasts/{tid}/{hid}")
-    public ResponseEntity<MovieCast> getMovieCastById(@PathVariable int tid, @PathVariable int hid) {
+    public ResponseEntity<MovieCast> getMovieCastById(@PathVariable String tid, @PathVariable int hid) {
         CastMovieId id = new CastMovieId(tid, hid);
         return ResponseEntity.ok(service.getMovieCastById(id));
     }
@@ -49,7 +49,7 @@ public class MovieCastController {
     }
 
     @DeleteMapping("/movieCasts/{tid}/{hid}")
-    public ResponseEntity<String> deleteMovieCast(@PathVariable int tid, @PathVariable int hid) {
+    public ResponseEntity<String> deleteMovieCast(@PathVariable String tid, @PathVariable int hid) {
         CastMovieId id = new CastMovieId(tid, hid);
         return ResponseEntity.ok(service.deleteById(id));
     }

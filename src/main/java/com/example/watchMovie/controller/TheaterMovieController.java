@@ -38,7 +38,7 @@ public class TheaterMovieController {
     }
 
     @GetMapping("/theaterMovies/{tid}/{mid}/{slot}")
-    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable int tid,
+    public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable String tid,
                                                             @PathVariable int mid,
                                                             @PathVariable String  slot) {
         MovieId id = new MovieId(tid, mid, slot);

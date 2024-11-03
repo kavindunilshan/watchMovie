@@ -26,7 +26,7 @@ public class TheaterLocationService {
         return theaterLocationRepository.findAll();
     }
 
-    public TheaterLocation getTheaterLocationById(int tid) {
+    public TheaterLocation getTheaterLocationById(String tid) {
         return theaterLocationRepository.findById(tid).orElse(null);
     }
 
@@ -68,7 +68,7 @@ public class TheaterLocationService {
         }
     }
 
-    public String deleteById(int tid) {
+    public String deleteById(String tid) {
         theaterLocationRepository.deleteById(tid);
         return "Theater Location " + tid + " is deleted.";
     }
