@@ -31,7 +31,7 @@ public class TheaterController {
     }
 
     @GetMapping("/theaters/{id}")
-    public ResponseEntity<Theater> getTheaterById(@PathVariable int id) {
+    public ResponseEntity<Theater> getTheaterById(@PathVariable String id) {
         return ResponseEntity.ok(service.getTheaterById(id));
     }
 
@@ -46,7 +46,7 @@ public class TheaterController {
     }
 
     @DeleteMapping("/theaters/{id}")
-    public ResponseEntity<String> deleteTheater(@PathVariable int id) {
+    public ResponseEntity<String> deleteTheater(@PathVariable String id) {
         return ResponseEntity.ok(service.deleteById(id));
     }
 
