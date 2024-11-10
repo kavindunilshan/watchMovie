@@ -31,16 +31,7 @@ public class TheaterService {
     }
 
     public Theater updateTheater(Theater theater) {
-        Optional<Theater> theaterFound = theaterRepository.findById(theater.getTid());
-        if (theaterFound.isPresent()) {
-            Theater theaterUpdate = theaterFound.get();
-            theaterUpdate.setName(theater.getName());
-            theaterUpdate.setContactNumber(theater.getContactNumber());
-
-            return theaterRepository.save(theater);
-        } else {
-            return null;
-        }
+        return theaterRepository.save(theater);
     }
 
     public Theater updateTheaterById(Theater theater) {

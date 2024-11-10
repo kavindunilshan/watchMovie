@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Getter @Setter
 @ToString
 public class TheaterPictureId implements Serializable {
-    @Column(name = "tid", nullable = false, length = 30)
+    @Column(name = "tid", nullable = false, length = 32)
     private String  tid;
 
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @ToString
 public class TheaterLocation {
     @Id
-    @Column(length = 30)
+    @Column(length = 32)
     private String tid;
 
     @Column

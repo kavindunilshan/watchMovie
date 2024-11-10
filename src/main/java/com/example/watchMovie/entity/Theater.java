@@ -15,7 +15,7 @@ import java.util.List;
 // @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
-    @Column(name = "tid", length = 30)
+    @Column(name = "tid", length = 32)
     private String tid;
 
     @Column
