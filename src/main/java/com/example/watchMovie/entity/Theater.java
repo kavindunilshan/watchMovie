@@ -15,9 +15,8 @@ import java.util.List;
 // @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Theater {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "tid")
-    private int tid;
+    @Column(name = "tid", length = 32)
+    private String tid;
 
     @Column
     private String name;
@@ -59,7 +58,7 @@ public class Theater {
     public Theater() {
     }
 
-    public Theater(int tid, String name, String contactNumber, String slogan, String ratings, String dimension, TheaterLocation location, List<Hall> halls, List<TheaterPicture> pictures, List<SeatData> seatDataList) {
+    public Theater(String tid, String name, String contactNumber, String slogan, String ratings, String dimension, TheaterLocation location, List<Hall> halls, List<TheaterPicture> pictures, List<SeatData> seatDataList) {
         this.tid = tid;
         this.name = name;
         this.contactNumber = contactNumber;

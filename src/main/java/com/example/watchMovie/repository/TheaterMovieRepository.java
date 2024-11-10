@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TheaterMovieRepository extends JpaRepository<TheaterMovie, MovieId> {
-    List<TheaterMovie> findAllById_Tid(int tid);
+    List<TheaterMovie> findAllById_Tid(String tid);
 }

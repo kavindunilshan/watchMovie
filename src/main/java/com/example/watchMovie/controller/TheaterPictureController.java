@@ -31,9 +31,9 @@ public class TheaterPictureController {
         return ResponseEntity.ok(service.getTheaterPictureList());
     }
 
-    @GetMapping("/theaterPictures/{mid}/{pid}")
-    public ResponseEntity<TheaterPicture> getTheaterPictureById(@PathVariable int mid, @PathVariable int pid) {
-        TheaterPictureId id = new TheaterPictureId(mid, pid);
+    @GetMapping("/theaterPictures/{tid}/{pid}")
+    public ResponseEntity<TheaterPicture> getTheaterPictureById(@PathVariable String tid, @PathVariable int pid) {
+        TheaterPictureId id = new TheaterPictureId(tid, pid);
         return ResponseEntity.ok(service.getTheaterPictureById(id));
     }
 
@@ -47,9 +47,9 @@ public class TheaterPictureController {
         return ResponseEntity.ok().body(service.updateTheaterPictureById(theaterPicture));
     }
 
-    @DeleteMapping("/theaterPictures/{mid}/{pid}")
-    public ResponseEntity<String> deleteTheaterPicture(@PathVariable int mid, @PathVariable int pid) {
-        TheaterPictureId id = new TheaterPictureId(mid, pid);
+    @DeleteMapping("/theaterPictures/{tid}/{pid}")
+    public ResponseEntity<String> deleteTheaterPicture(@PathVariable String tid, @PathVariable int pid) {
+        TheaterPictureId id = new TheaterPictureId(tid, pid);
         return ResponseEntity.ok(service.deleteById(id));
     }
 

@@ -31,7 +31,7 @@ public class SeatDataController {
     }
 
     @GetMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
-    public ResponseEntity<SeatData> getSeatDataById(@PathVariable int tid,
+    public ResponseEntity<SeatData> getSeatDataById(@PathVariable String tid,
                                                             @PathVariable int mid,
                                                     @PathVariable String timeSlot,
                                                             @PathVariable String date) 
@@ -53,7 +53,7 @@ public class SeatDataController {
 
     @DeleteMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
     public ResponseEntity<String> deleteSeatData
-            (@PathVariable int tid,
+            (@PathVariable String tid,
              @PathVariable int mid, @PathVariable String timeSlot,
              @PathVariable String date)
     {

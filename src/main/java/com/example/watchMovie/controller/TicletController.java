@@ -32,7 +32,7 @@ public class TicletController {
     }
 
     @GetMapping("/tickets/{tid}/{tc_id}")
-    public ResponseEntity<Ticket> getTicketById(@PathVariable int tid, @PathVariable int tc_id) {
+    public ResponseEntity<Ticket> getTicketById(@PathVariable String tid, @PathVariable int tc_id) {
         TicketId id = new TicketId(tid, tc_id);
         return ResponseEntity.ok(service.getTicketById(id));
     }
@@ -48,7 +48,7 @@ public class TicletController {
     }
 
     @DeleteMapping("/tickets/{tid}/{tc_id}")
-    public ResponseEntity<String> deleteTicket(@PathVariable int tid, @PathVariable int tc_id) {
+    public ResponseEntity<String> deleteTicket(@PathVariable String tid, @PathVariable int tc_id) {
         TicketId id = new TicketId(tid, tc_id);
         return ResponseEntity.ok(service.deleteById(id));
     }

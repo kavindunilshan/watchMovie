@@ -15,7 +15,7 @@ public class User {
 
     // comment added
     @Id
-    @Column(length = 30)
+    @Column(length = 32)
     private String id;
 
     @Column

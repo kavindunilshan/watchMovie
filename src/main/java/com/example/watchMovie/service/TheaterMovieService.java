@@ -31,7 +31,7 @@ public class TheaterMovieService {
         return theaterMovieRepository.findById(id).orElse(null);
     }
 
-    public List<TheaterMovie> getTheaterMovieList(int tid) {
+    public List<TheaterMovie> getTheaterMovieList(String tid) {
         return theaterMovieRepository.findAllById_Tid(tid);
     }
 

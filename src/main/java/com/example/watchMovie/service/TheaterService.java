@@ -26,21 +26,12 @@ public class TheaterService {
         return theaterRepository.findAll();
     }
 
-    public Theater getTheaterById(int tid) {
+    public Theater getTheaterById(String tid) {
         return theaterRepository.findById(tid).orElse(null);
     }
 
     public Theater updateTheater(Theater theater) {
-        Optional<Theater> theaterFound = theaterRepository.findById(theater.getTid());
-        if (theaterFound.isPresent()) {
-            Theater theaterUpdate = theaterFound.get();
-            theaterUpdate.setName(theater.getName());
-            theaterUpdate.setContactNumber(theater.getContactNumber());
-
-            return theaterRepository.save(theater);
-        } else {
-            return null;
-        }
+        return theaterRepository.save(theater);
     }
 
     public Theater updateTheaterById(Theater theater) {
@@ -48,19 +39,19 @@ public class TheaterService {
         if (theaterFound.isPresent()) {
             Theater theaterUpdate = theaterFound.get();
 
-            if(0 < theater.getName().length())
+            if(!theater.getName().isEmpty())
                 theaterUpdate.setName(theater.getName());
 
-            if(0 < theater.getContactNumber().length())
+            if(!theater.getContactNumber().isEmpty())
                 theaterUpdate.setContactNumber(theater.getContactNumber());
 
-            if(0 < theater.getRatings().length())
+            if(!theater.getRatings().isEmpty())
                 theaterUpdate.setRatings(theater.getRatings());
 
             if(theater.getLocation() != null)
                 theaterUpdate.setLocation(theater.getLocation());
 
-            if(0 < theater.getHalls().size())
+            if(!theater.getHalls().isEmpty())
                 theaterUpdate.setHalls(theater.getHalls());
 
             return theaterRepository.save(theater);
@@ -69,7 +60,7 @@ public class TheaterService {
         }
     }
 
-    public String deleteById(int tid) {
+    public String deleteById(String tid) {
         theaterRepository.deleteById(tid);
         return "Theater " + tid + " is deleted.";
     }

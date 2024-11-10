@@ -13,9 +13,8 @@ import javax.persistence.*;
 @ToString
 public class TheaterLocation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
-    private int tid;
+    @Column(length = 32)
+    private String tid;
 
     @Column
     private String district;
