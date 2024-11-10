@@ -38,6 +38,11 @@ public class HallController {
         return ResponseEntity.ok(service.getHallById(id));
     }
 
+    @GetMapping("/halls/{tid}")
+    public ResponseEntity<List<Hall>> getHallsByTid(@PathVariable String tid) {
+        return ResponseEntity.ok(service.getHallsByTid(tid));
+    }
+
     @PutMapping("/halls")
     public ResponseEntity<Hall> updateHall(@RequestBody Hall hall) {
         return ResponseEntity.ok().body(service.updateHall(hall));

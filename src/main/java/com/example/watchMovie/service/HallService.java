@@ -31,16 +31,12 @@ public class HallService {
         return hallRepository.findById(id).orElse(null);
     }
 
-    public Hall updateHall(Hall hall) {
-        Optional<Hall> hallFound = hallRepository.findById(hall.getId());
-        if (hallFound.isPresent()) {
-            Hall hallUpdate = hallFound.get();
-            hallUpdate.setSeats(hall.getSeats());
+    public List<Hall> getHallsByTid(String tid) {
+        return hallRepository.findByIdTid(tid);
+    }
 
-            return hallRepository.save(hall);
-        } else {
-            throw new IdNotFoundException("Invalid Hall Id");
-        }
+    public Hall updateHall(Hall hall) {
+        return hallRepository.save(hall);
     }
 
     public Hall updateHallById(Hall hall) {
