@@ -7,33 +7,27 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table
 @Getter
 @Setter
 @ToString
-public class User {
-
-    // comment added
+public class TheaterLocation {
     @Id
     @Column(length = 32)
-    private String id;
-
-    @Column
-    private int age;
+    private String tid;
 
     @Column
     private String district;
 
+    @Column
+    private String city;
 
     @Column
-    private String fname;
+    private String lat;
 
     @Column
-    private String lname;
+    private String lang;
 
     @Column
-    private String username;
-
-    @Column
-    private String password;
+    private String address;
 }
