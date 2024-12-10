@@ -43,7 +43,7 @@ public class TheaterMovieService {
 
             return theaterMovieRepository.save(theaterMovie);
         } else {
-            return null;
+            return theaterMovieRepository.save(theaterMovie);
         }
     }
 

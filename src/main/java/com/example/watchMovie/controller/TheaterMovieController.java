@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/theaterMovies")
 public class TheaterMovieController {
     @Autowired
     private TheaterMovieService service;
 
-    @PostMapping("/theaterMovies")
+    @PostMapping("")
     public ResponseEntity<TheaterMovie> createTheaterMovie(@RequestBody TheaterMovie theaterMovie) {
         System.out.println(theaterMovie);
         return ResponseEntity.ok(this.service.createTheaterMovie(theaterMovie));
     }
 
-    @PostMapping("/theaterMoviesList")
+    @PostMapping("/list")
     public ResponseEntity<List<TheaterMovie>> createTheaterMovies(@RequestBody List<TheaterMovie> theaterMovies) {
         return ResponseEntity.ok(service.createTheaterMovieList(theaterMovies));
     }
 
-    @GetMapping("/theaterMovies")
+    @GetMapping("")
     public ResponseEntity<List<TheaterMovie>> getAllTheaterMovies() {
         return ResponseEntity.ok(service.getAllTheaterMovieList());
     }
 
-    @GetMapping("/theaterMovies/{tid}")
+    @GetMapping("/{tid}")
     public ResponseEntity<List<TheaterMovie>> getTheaterMovies(@PathVariable String tid) {
         return ResponseEntity.ok(service.getTheaterMovieList(tid));
     }
 
-    @GetMapping("/theaterMovies/{tid}/{mid}/{slot}")
+    @GetMapping("/{tid}/{mid}/{slot}")
     public ResponseEntity<TheaterMovie> getTheaterMovieById(@PathVariable String tid,
                                                             @PathVariable int mid,
                                                             @PathVariable String  slot) {
@@ -45,17 +45,17 @@ public class TheaterMovieController {
         return ResponseEntity.ok(service.getTheaterMovieById(id));
     }
 
-    @PutMapping("/theaterMovies")
+    @PutMapping("")
     public ResponseEntity<TheaterMovie> updateTheaterMovie(@RequestBody TheaterMovie theaterMovie) {
         return ResponseEntity.ok().body(service.updateTheaterMovie(theaterMovie));
     }
 
-    @PatchMapping("/theaterMovies")
+    @PatchMapping("")
     public ResponseEntity<TheaterMovie> updateTheaterMoviePart(@RequestBody TheaterMovie theaterMovie) {
         return ResponseEntity.ok().body(service.updateTheaterMovieById(theaterMovie));
     }
 
-    @DeleteMapping("/theaterMovies/{tid}/{mid}/{slot}")
+    @DeleteMapping("/{tid}/{mid}/{slot}")
     public ResponseEntity<String> deleteTheaterMovie
             (@PathVariable String tid,
              @PathVariable int mid,
