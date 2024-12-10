@@ -3,9 +3,11 @@ package com.example.watchMovie.supportingEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import net.bytebuddy.asm.Advice;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 @Embeddable
