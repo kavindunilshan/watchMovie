@@ -22,6 +22,9 @@ public class TheaterMovie {
     @Column
     private int halfPrice;
 
+    @Column
+    private int hid;
+
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "mid", insertable = false, updatable = false)
     private Movie movie;

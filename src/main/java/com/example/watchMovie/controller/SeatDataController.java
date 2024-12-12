@@ -36,8 +36,7 @@ public class SeatDataController {
                                                     @PathVariable String timeSlot,
                                                             @PathVariable String date) 
     {
-        String date1 = date.replace("s", "/");
-        SeatDataId id = new SeatDataId(tid, mid, timeSlot, date1);
+        SeatDataId id = new SeatDataId(tid, mid, timeSlot, date);
         return ResponseEntity.ok(service.getSeatDataById(id));
     }
 
