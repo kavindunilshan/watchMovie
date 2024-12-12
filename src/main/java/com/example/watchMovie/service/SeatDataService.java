@@ -32,16 +32,8 @@ public class SeatDataService {
     }
 
     public SeatData updateSeatData(SeatData seatData) {
-        Optional<SeatData> seatDataFound = seatDataRepository.findById(seatData.getId());
-        if (seatDataFound.isPresent()) {
-            SeatData seatDataUpdate = seatDataFound.get();
-            seatDataUpdate.setNumSeats(seatData.getNumSeats());
-            seatDataUpdate.setSeats(seatData.getSeats());
-
-            return seatDataRepository.save(seatData);
-        } else {
-            return null;
-        }
+        System.out.println("Seat data: " + seatData);
+        return seatDataRepository.save(seatData);
     }
 
     public SeatData updateSeatDataById(SeatData seatData) {
