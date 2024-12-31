@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/seatData")
 public class SeatDataController {
     @Autowired
     private SeatDataService service;
 
-    @PostMapping("/seatData")
+    @PostMapping("")
     public synchronized ResponseEntity<SeatData> createSeatData(@RequestBody SeatData seatData) {
         return ResponseEntity.ok(this.service.createSeatData(seatData));
     }
 
-    @PostMapping("/seatDataList")
+    @PostMapping("/list")
     public synchronized ResponseEntity<List<SeatData>> createSeatDatas(@RequestBody List<SeatData> seatDatas) {
         return ResponseEntity.ok(service.createSeatDataList(seatDatas));
     }
 
-    @GetMapping("/seatData")
+    @GetMapping("")
     public ResponseEntity<List<SeatData>> getSeatDatas() {
         return ResponseEntity.ok(service.getSeatDataList());
     }
 
-    @GetMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
+    @GetMapping("/{tid}/{mid}/{timeSlot}/{date}")
     public ResponseEntity<SeatData> getSeatDataById(@PathVariable String tid,
                                                             @PathVariable int mid,
                                                     @PathVariable String timeSlot,
@@ -40,17 +40,17 @@ public class SeatDataController {
         return ResponseEntity.ok(service.getSeatDataById(id));
     }
 
-    @PutMapping("/seatData")
+    @PutMapping("")
     public ResponseEntity<SeatData> updateSeatData(@RequestBody SeatData seatData) {
         return ResponseEntity.ok().body(service.updateSeatData(seatData));
     }
 
-    @PatchMapping("/seatData")
+    @PatchMapping("")
     public ResponseEntity<SeatData> updateSeatDataPart(@RequestBody SeatData seatData) {
         return ResponseEntity.ok().body(service.updateSeatDataById(seatData));
     }
 
-    @DeleteMapping("/seatData/{tid}/{mid}/{timeSlot}/{date}")
+    @DeleteMapping("/{tid}/{mid}/{timeSlot}/{date}")
     public ResponseEntity<String> deleteSeatData
             (@PathVariable String tid,
              @PathVariable int mid, @PathVariable String timeSlot,

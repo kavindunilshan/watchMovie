@@ -32,7 +32,6 @@ public class SeatDataService {
     }
 
     public SeatData updateSeatData(SeatData seatData) {
-        System.out.println("Seat data: " + seatData);
         return seatDataRepository.save(seatData);
     }
 

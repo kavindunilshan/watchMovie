@@ -19,21 +19,5 @@ public class User {
     private String id;
 
     @Column
-    private int age;
-
-    @Column
-    private String district;
-
-
-    @Column
-    private String fname;
-
-    @Column
-    private String lname;
-
-    @Column
-    private String username;
-
-    @Column
-    private String password;
+    private String email;
 }
