@@ -46,7 +46,7 @@ public class SeatDataService {
             if(0 < seatData.getHid())
                 seatDataUpdate.setHid(seatData.getHid());
 
-            if(0 < seatData.getSeats().length())
+            if(!seatData.getSeats().isEmpty())
                 seatDataUpdate.setSeats(seatData.getSeats());
 
             return seatDataRepository.save(seatDataUpdate);

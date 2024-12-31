@@ -1,6 +1,5 @@
 package com.example.watchMovie.service;
 
-import com.example.watchMovie.emailStarergy.EmailSenderStrategy;
 import com.example.watchMovie.emailStarergy.EmailStrategyService;
 import com.example.watchMovie.emailStarergy.SMTPEmailStrategy;
 import com.example.watchMovie.emailStarergy.ThirdPartyEmailStrategy;

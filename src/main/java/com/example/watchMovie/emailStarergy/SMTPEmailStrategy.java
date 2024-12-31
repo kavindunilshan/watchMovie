@@ -1,6 +1,7 @@
 package com.example.watchMovie.emailStarergy;
+
 import com.example.watchMovie.resources.PdfCreator;
-import com.example.watchMovie.utils.ConfigReader;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -11,9 +12,12 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class SMTPEmailStrategy extends EmailSenderStrategy {
+
     public SMTPEmailStrategy() {
     }
 
@@ -23,72 +27,74 @@ public class SMTPEmailStrategy extends EmailSenderStrategy {
 
     @Override
     public void sendEmail() throws IOException {
-        final String username = ConfigReader.getUsername();
-        final String password = ConfigReader.getPassword();
-        System.out.println("username working"+ username);
+        Dotenv dotenv = Dotenv.load();
+
+        String username = dotenv.get("EMAIL");
+        String password = dotenv.get("PASSWORD");
+
+        if (username == null || password == null) {
+            throw new IllegalStateException("Email credentials are missing in the .env file.");
+        }
+
+        System.out.println("Using email: " + username);
 
         Properties prop = new Properties();
-
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true");
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
-        Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password); // Use App Password
+            }
+        });
 
         try {
-
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("kavinilj10@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse(email));
-
+            message.setFrom(new InternetAddress(username)); // Use the sender's email address
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(subject);
 
+            // Generate PDF for attachment
             PdfCreator.createPDF(content);
+            System.out.println("PDF successfully created.");
 
-            // ================================
-            // Create a multipart message
+            // Build multipart email content
             Multipart multipart = new MimeMultipart();
-
-            // Text content
             MimeBodyPart textPart = new MimeBodyPart();
-            textPart.setText("Tickets booked successfully.\n\n\t" +
-                    "Lights, camera, action!" +
-                    " It's time to get ready for an unforgettable cinematic experience with WatchMovie." +
-                    " We're thrilled to have you on board, and your ticket is now ready for the showtime!" +
-                    "\nFind your ticket in attachment." +
-                    "\n\nThanks For Booking With Us!!");
+            textPart.setText(
+                    "Tickets booked successfully.\n\n" +
+                            "Lights, camera, action! Get ready for an unforgettable cinematic experience with WatchMovie.\n" +
+                            "We're thrilled to have you on board! Your ticket is now ready for showtime.\n\n" +
+                            "Please find your ticket attached.\n\n" +
+                            "Thanks for booking with us!");
 
-            // Attachment
+
+            // Attachment part
             MimeBodyPart attachmentPart = new MimeBodyPart();
-            String attachmentPath = "E:\\watchMovie\\src\\main\\java\\com\\example\\watchMovie\\resources\\examples.pdf"; // Replace with the actual file path
-            DataSource source = new FileDataSource(attachmentPath);
-            attachmentPart.setDataHandler(new DataHandler(source));
-            attachmentPart.setFileName("attachment.pdf"); // Set the desired file name for the attachment
 
-            // Add text and attachment to the multipart message
+            String pdfPath = PdfCreator.createPDF(content); // Generate the PDF
+            Path attachmentPath = Paths.get(pdfPath);
+            DataSource source = new FileDataSource(attachmentPath.toFile());
+            attachmentPart.setDataHandler(new DataHandler(source));
+            attachmentPart.setFileName("MovieTicket.pdf");
+
+            // Add parts to the multipart message
             multipart.addBodyPart(textPart);
             multipart.addBodyPart(attachmentPart);
 
-            // Set the multipart message as the email's content
+            // Set email content
             message.setContent(multipart);
-            System.out.println("Started to create a pdf");
 
-            // ================================
-
+            System.out.println("Preparing to send email...");
             Transport.send(message);
-
             System.out.println("Successfully sent an email to " + email);
 
         } catch (MessagingException e) {
-            e.printStackTrace();
+            System.err.println("Failed to send email: " + e.getMessage());
+            throw new RuntimeException("Email sending failed", e);
         }
     }
 }
